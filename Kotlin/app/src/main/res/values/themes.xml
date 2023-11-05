@@ -6,4 +6,12 @@
     </style>
 
     <style name="Theme.ASCIIConverter" parent="Base.Theme.ASCIIConverter" />
+    <style name="ascii_conve">
+        <item name="android:textSize">32sp</item>
+        <item name="android:textColor">#082929</item>
+    </style>
+    <style name="text_to_asc">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">#707070</item>
+    </style>
 </resources>

@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">ASCII converter</string>
+    <string name="ascii_conve">
+        ASCII converter
+    </string>
+    <string name="enter_ascii">
+        Enter ASCII decimal number:
+    </string>
 </resources>
