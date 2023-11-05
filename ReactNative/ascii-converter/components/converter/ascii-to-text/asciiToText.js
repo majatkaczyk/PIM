@@ -29,7 +29,8 @@ const AsciiToText = () => {
           <Text style={converterStyle.buttonText}>Convert</Text>
         </Pressable>
       </View>
-      <Text style={converterStyle.label}>Output</Text>
+      <Text style={converterStyle.label}>Output:</Text>
+      <View style={converterStyle.outputContainer}></View>
     </View>
   );
 };

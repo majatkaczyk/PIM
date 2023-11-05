@@ -26,7 +26,21 @@ const converterStyle = StyleSheet.create({
   },
   tabContainer: {
     width: "100%",
-    height: "70%",
+    height: "49%",
+  },
+  bigButton: {
+    height: windowHeight * 0.08,
+    width: "100%",
+    backgroundColor: colors.darkBlue,
+    borderRadius: 10,
+    marginTop: "5%",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  gameText: {
+    color: colors.white,
+    fontFamily: "Poppins_500Medium",
+    fontSize: 18,
   },
 
   tabContentStyle: {
@@ -44,6 +58,7 @@ const converterStyle = StyleSheet.create({
     paddingTop: "2%",
     width: "100%",
     justifyContent: "space-between",
+    marginBottom: "5%",
   },
   input: {
     fontFamily: "Poppins_400Regular",
@@ -72,6 +87,12 @@ const converterStyle = StyleSheet.create({
     color: colors.fontColor,
     fontFamily: "Poppins_500Medium",
     fontSize: 16,
+  },
+  outputContainer: {
+    height: windowHeight * 0.08,
+    width: "100%",
+    backgroundColor: colors.lightBlue,
+    borderRadius: 3,
   },
 });
 export default converterStyle;

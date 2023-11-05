@@ -33,6 +33,9 @@ const ConverterScreen = ({ navigation }) => {
         <View style={converterStyle.tabContainer}>
           <TabNavigator></TabNavigator>
         </View>
+        <Pressable style={converterStyle.bigButton}>
+          <Text style={converterStyle.gameText}>Mini game</Text>
+        </Pressable>
       </View>
     </View>
   );
