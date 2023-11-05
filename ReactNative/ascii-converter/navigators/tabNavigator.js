@@ -10,8 +10,8 @@ const TabNavigator = () => {
   return (
     <NavigationContainer>
       <Tab.Navigator>
-        <Tab.Screen name="AsciiToText" component={AsciiToText} />
-        <Tab.Screen name="TextToAscii" component={TextToAscii} />
+        <Tab.Screen name="ASCII to text" component={AsciiToText} />
+        <Tab.Screen name="Text to ASCII" component={TextToAscii} />
       </Tab.Navigator>
     </NavigationContainer>
   );
