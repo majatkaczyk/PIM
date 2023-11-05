@@ -3,7 +3,14 @@ import React from "react";
 
 const AsciiToText = () => {
   return (
-    <View style={{ flex: 1 }}>
+    <View
+      style={{
+        flex: 1,
+        backgroundColor: "#FFF",
+        borderBottomLeftRadius: 10,
+        borderBottomRightRadius: 10,
+      }}
+    >
       <Text>asciiToText</Text>
     </View>
   );

@@ -10,10 +10,18 @@ import {
   Nunito_400Regular,
   Nunito_500Medium,
 } from "@expo-google-fonts/nunito";
+import {
+  Poppins_300Light,
+  Poppins_400Regular,
+  Poppins_500Medium,
+} from "@expo-google-fonts/poppins";
 const ConverterScreen = ({ navigation }) => {
   const [fontsLoaded] = useFonts({
     Nunito_400Regular,
     Nunito_500Medium,
+    Poppins_300Light,
+    Poppins_400Regular,
+    Poppins_500Medium,
   });
   if (!fontsLoaded) {
     return null;
