@@ -22,6 +22,7 @@ const AsciiToText = () => {
             value={number}
             keyboardType="numeric"
             style={converterStyle.input}
+            maxLength={3}
           />
         </SafeAreaView>
         <Pressable style={converterStyle.convertButton}>
