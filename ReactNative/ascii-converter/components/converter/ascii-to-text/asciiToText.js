@@ -1,17 +1,12 @@
 import { StyleSheet, Text, View } from "react-native";
 import React from "react";
+import converterStyle from "../converterStyle";
 
 const AsciiToText = () => {
   return (
-    <View
-      style={{
-        flex: 1,
-        backgroundColor: "#FFF",
-        borderBottomLeftRadius: 10,
-        borderBottomRightRadius: 10,
-      }}
-    >
-      <Text>asciiToText</Text>
+    <View style={converterStyle.tabContentStyle}>
+      <Text style={converterStyle.label}>Enter ASCII decimal number:</Text>
+      <Text style={converterStyle.label}>Output</Text>
     </View>
   );
 };

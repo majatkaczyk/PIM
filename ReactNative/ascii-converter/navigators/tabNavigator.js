@@ -14,9 +14,12 @@ const TabNavigator = () => {
         screenOptions={{
           tabBarActiveTintColor: colors.darkBlue,
           tabBarInactiveTintColor: colors.inActiveColor,
-          tabBarStyle: { borderTopLeftRadius: 10, borderTopRightRadius: 10 },
+          tabBarStyle: { borderTopLeftRadius: 10, borderTopRightRadius: 10 }, //there is smth like shadow :(((
           tabBarIndicatorStyle: { backgroundColor: colors.darkBlue },
-          tabBarLabelStyle: { fontFamily: "Poppins_400Regular", fontSize: 16 },
+          tabBarLabelStyle: {
+            fontFamily: "Poppins_400Regular",
+            fontSize: 16,
+          },
         }}
       >
         <Tab.Screen

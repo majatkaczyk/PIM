@@ -28,5 +28,15 @@ const converterStyle = StyleSheet.create({
     width: "100%",
     height: "70%",
   },
+
+  tabContentStyle: {
+    flex: 1,
+    backgroundColor: "#FFF",
+    borderBottomLeftRadius: 10,
+    borderBottomRightRadius: 10,
+    paddingTop: "10%",
+    paddingHorizontal: "8%",
+  },
+  label: { fontFamily: "Poppins_300Light", fontSize: 14 },
 });
 export default converterStyle;
