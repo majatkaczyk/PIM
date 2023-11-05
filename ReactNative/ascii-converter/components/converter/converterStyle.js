@@ -38,5 +38,40 @@ const converterStyle = StyleSheet.create({
     paddingHorizontal: "8%",
   },
   label: { fontFamily: "Poppins_300Light", fontSize: 14 },
+  rowContainer: {
+    flexDirection: "row",
+    height: windowHeight * 0.08,
+    paddingTop: "2%",
+    width: "100%",
+    justifyContent: "space-between",
+  },
+  input: {
+    fontFamily: "Poppins_400Regular",
+    fontSize: 16,
+    marginTop: "2%",
+  },
+  safeAreaView: {
+    borderColor: colors.darkBlue,
+    borderWidth: 1,
+    borderRadius: 3,
+    height: "95%",
+    width: "48%",
+    justifyContent: "center",
+    paddingHorizontal: "3%",
+  },
+  convertButton: {
+    height: "95%",
+    width: "48%",
+    justifyContent: "center",
+    paddingHorizontal: "3%",
+    alignItems: "center",
+    backgroundColor: colors.blue,
+    borderRadius: 3,
+  },
+  buttonText: {
+    color: colors.fontColor,
+    fontFamily: "Poppins_500Medium",
+    fontSize: 16,
+  },
 });
 export default converterStyle;
