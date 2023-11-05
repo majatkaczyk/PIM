@@ -1,10 +1,7 @@
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import React from "react";
 import converterStyle from "./converterStyle";
 import TabNavigator from "../../navigators/tabNavigator";
-import AsciiToText from "./ascii-to-text/asciiToText";
-import { Pressable } from "react-native";
-import { NavigationContainer } from "@react-navigation/native";
 import {
   useFonts,
   Nunito_400Regular,
@@ -33,9 +30,12 @@ const ConverterScreen = ({ navigation }) => {
         <View style={converterStyle.tabContainer}>
           <TabNavigator></TabNavigator>
         </View>
-        <Pressable style={converterStyle.bigButton}>
+        <TouchableOpacity
+          style={converterStyle.bigButton}
+          onPress={() => navigation.push("MiniGame")}
+        >
           <Text style={converterStyle.gameText}>Mini game</Text>
-        </Pressable>
+        </TouchableOpacity>
       </View>
     </View>
   );

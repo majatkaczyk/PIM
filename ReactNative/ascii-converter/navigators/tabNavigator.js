@@ -9,31 +9,29 @@ const Tab = createMaterialTopTabNavigator();
 
 const TabNavigator = () => {
   return (
-    <NavigationContainer>
-      <Tab.Navigator
-        screenOptions={{
-          tabBarActiveTintColor: colors.darkBlue,
-          tabBarInactiveTintColor: colors.inActiveColor,
-          tabBarStyle: { borderTopLeftRadius: 10, borderTopRightRadius: 10 }, //there is smth like shadow :(((
-          tabBarIndicatorStyle: { backgroundColor: colors.darkBlue },
-          tabBarLabelStyle: {
-            fontFamily: "Poppins_400Regular",
-            fontSize: 16,
-          },
-        }}
-      >
-        <Tab.Screen
-          name="AsciiToText"
-          component={AsciiToText}
-          options={{ title: "ASCII to text" }}
-        />
-        <Tab.Screen
-          name="TextToAscii"
-          component={TextToAscii}
-          options={{ title: "Text to ASCII" }}
-        />
-      </Tab.Navigator>
-    </NavigationContainer>
+    <Tab.Navigator
+      screenOptions={{
+        tabBarActiveTintColor: colors.darkBlue,
+        tabBarInactiveTintColor: colors.inActiveColor,
+        tabBarStyle: { borderTopLeftRadius: 10, borderTopRightRadius: 10 }, //there is smth like shadow :(((
+        tabBarIndicatorStyle: { backgroundColor: colors.darkBlue },
+        tabBarLabelStyle: {
+          fontFamily: "Poppins_400Regular",
+          fontSize: 16,
+        },
+      }}
+    >
+      <Tab.Screen
+        name="AsciiToText"
+        component={AsciiToText}
+        options={{ title: "ASCII to text" }}
+      />
+      <Tab.Screen
+        name="TextToAscii"
+        component={TextToAscii}
+        options={{ title: "Text to ASCII" }}
+      />
+    </Tab.Navigator>
   );
 };
 
