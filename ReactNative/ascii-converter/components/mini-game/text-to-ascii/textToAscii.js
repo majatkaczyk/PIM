@@ -7,29 +7,22 @@ import {
   TextInput,
 } from "react-native";
 import React from "react";
-
+import { TouchableOpacity } from "react-native-gesture-handler";
+import miniGameStyle from "../miniGameStyle";
 const TextToAsciiGame = () => {
   return (
-    <View>
-      <Text>GameII</Text>
+    <View style={miniGameStyle.tabContentStyle}>
+      <Text style={miniGameStyle.label}>Guess the ASCII decimal number:</Text>
+      <View style={miniGameStyle.outputContainer}></View>
+      <Text style={miniGameStyle.label}>Your answer:</Text>
+      <SafeAreaView style={miniGameStyle.safeAreaView}>
+        <TextInput
+          keyboardType="ascii-capable"
+          style={miniGameStyle.input}
+          maxLength={3}
+        />
+      </SafeAreaView>
     </View>
-    //   <View style={converterStyle.tabContentStyle}>
-    //     <Text style={converterStyle.label}>Enter text:</Text>
-    //     <View style={converterStyle.rowContainer}>
-    //       <SafeAreaView style={converterStyle.safeAreaView}>
-    //         <TextInput
-    //           keyboardType="ascii-capable"
-    //           style={converterStyle.input}
-    //           maxLength={3}
-    //         />
-    //       </SafeAreaView>
-    //       <Pressable style={converterStyle.convertButton}>
-    //         <Text style={converterStyle.buttonText}>Convert</Text>
-    //       </Pressable>
-    //     </View>
-    //     <Text style={converterStyle.label}>Output:</Text>
-    //     <View style={converterStyle.outputContainer}></View>
-    //   </View>
   );
 };
 
