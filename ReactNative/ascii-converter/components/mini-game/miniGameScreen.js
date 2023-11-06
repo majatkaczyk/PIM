@@ -14,6 +14,8 @@ import miniGameStyle from "./miniGameStyle";
 import MaterialIcons from "react-native-vector-icons/MaterialIcons";
 import { colors } from "../../globalStyles/colors";
 import TabNavigator from "../../navigators/tabNavigator";
+import { TouchableOpacity } from "react-native-gesture-handler";
+
 const MiniGameScreen = ({ navigation }) => {
   const [fontsLoaded] = useFonts({
     Nunito_400Regular,
@@ -28,24 +30,24 @@ const MiniGameScreen = ({ navigation }) => {
   return (
     <View style={miniGameStyle.mainContainer}>
       <View style={miniGameStyle.contentContainer}>
-        <View style={miniGameStyle.rowNavigationContainer}>
+        <TouchableOpacity
+          style={miniGameStyle.rowNavigationContainer}
+          onPress={() => navigation.pop()}
+        >
           <MaterialIcons
             name="arrow-back-ios"
             size={20}
             color={colors.fontColor}
           />
           <Text style={miniGameStyle.navigationText}>Back to converter</Text>
-        </View>
+        </TouchableOpacity>
         <Text style={miniGameStyle.header}>Mini game</Text>
         <View style={miniGameStyle.tabContainer}>
           <TabNavigator isGame={true} />
         </View>
-        {/* <TouchableOpacity
-          style={converterStyle.bigButton}
-          onPress={() => navigation.push("MiniGame")}
-        >
-          <Text style={converterStyle.gameText}>Mini game</Text>
-        </TouchableOpacity> */}
+        <TouchableOpacity style={miniGameStyle.bigButton}>
+          <Text style={miniGameStyle.gameText}>Check answer</Text>
+        </TouchableOpacity>
       </View>
     </View>
   );

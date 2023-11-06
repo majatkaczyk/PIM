@@ -41,6 +41,20 @@ const miniGameStyle = StyleSheet.create({
     marginTop: "2%",
   },
 
+  gameText: {
+    color: colors.fontColor,
+    fontFamily: "Poppins_500Medium",
+    fontSize: 18,
+  },
+  bigButton: {
+    height: windowHeight * 0.08,
+    width: "100%",
+    backgroundColor: colors.blue,
+    borderRadius: 10,
+    marginTop: "5%",
+    justifyContent: "center",
+    alignItems: "center",
+  },
   safeAreaView: {
     borderColor: colors.darkBlue,
     borderWidth: 1,
@@ -73,21 +87,6 @@ const miniGameStyle = StyleSheet.create({
     color: colors.fontColor,
     fontSize: 14,
   },
-
-  //   bigButton: {
-  //     height: windowHeight * 0.08,
-  //     width: "100%",
-  //     backgroundColor: colors.darkBlue,
-  //     borderRadius: 10,
-  //     marginTop: "5%",
-  //     justifyContent: "center",
-  //     alignItems: "center",
-  //   },
-  //   gameText: {
-  //     color: colors.white,
-  //     fontFamily: "Poppins_500Medium",
-  //     fontSize: 18,
-  //   },
 
   //   rowContainer: {
   //     flexDirection: "row",

@@ -12,6 +12,7 @@ import {
   Poppins_400Regular,
   Poppins_500Medium,
 } from "@expo-google-fonts/poppins";
+
 const ConverterScreen = ({ navigation }) => {
   const [fontsLoaded] = useFonts({
     Nunito_400Regular,
