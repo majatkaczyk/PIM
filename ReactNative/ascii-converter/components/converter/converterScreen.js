@@ -28,7 +28,7 @@ const ConverterScreen = ({ navigation }) => {
       <View style={converterStyle.contentContainer}>
         <Text style={converterStyle.header}>ASCII converter</Text>
         <View style={converterStyle.tabContainer}>
-          <TabNavigator></TabNavigator>
+          <TabNavigator isGame={false} />
         </View>
         <TouchableOpacity
           style={converterStyle.bigButton}
