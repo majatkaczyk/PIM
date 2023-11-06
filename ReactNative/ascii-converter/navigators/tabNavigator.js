@@ -1,4 +1,3 @@
-import { StyleSheet, Text, View } from "react-native";
 import React from "react";
 import { createMaterialTopTabNavigator } from "@react-navigation/material-top-tabs";
 import AsciiToText from "../components/converter/ascii-to-text/asciiToText";
@@ -37,5 +36,3 @@ const TabNavigator = ({ isGame }) => {
 };
 
 export default TabNavigator;
-
-const styles = StyleSheet.create({});
