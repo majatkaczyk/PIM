@@ -29,7 +29,40 @@ const miniGameStyle = StyleSheet.create({
     width: "100%",
     height: "49%",
   },
+  outputContainer: {
+    height: windowHeight * 0.08,
+    width: "100%",
+    backgroundColor: colors.lightBlue,
+    borderRadius: 3,
+  },
+  input: {
+    fontFamily: "Poppins_400Regular",
+    fontSize: 16,
+    marginTop: "2%",
+  },
 
+  safeAreaView: {
+    borderColor: colors.darkBlue,
+    borderWidth: 1,
+    borderRadius: 3,
+    height: windowHeight * 0.08,
+    width: "100%",
+    justifyContent: "center",
+    paddingHorizontal: "3%",
+  },
+  tabContentStyle: {
+    flex: 1,
+    backgroundColor: "#FFF",
+    borderBottomLeftRadius: 10,
+    borderBottomRightRadius: 10,
+    paddingTop: "4%",
+    paddingHorizontal: "8%",
+  },
+  label: {
+    fontFamily: "Poppins_300Light",
+    fontSize: 14,
+    marginTop: windowHeight * 0.02,
+  },
   rowNavigationContainer: {
     flexDirection: "row",
     width: "100%",
@@ -56,15 +89,6 @@ const miniGameStyle = StyleSheet.create({
   //     fontSize: 18,
   //   },
 
-  //   tabContentStyle: {
-  //     flex: 1,
-  //     backgroundColor: "#FFF",
-  //     borderBottomLeftRadius: 10,
-  //     borderBottomRightRadius: 10,
-  //     paddingTop: "10%",
-  //     paddingHorizontal: "8%",
-  //   },
-  //   label: { fontFamily: "Poppins_300Light", fontSize: 14 },
   //   rowContainer: {
   //     flexDirection: "row",
   //     height: windowHeight * 0.08,
@@ -73,20 +97,7 @@ const miniGameStyle = StyleSheet.create({
   //     justifyContent: "space-between",
   //     marginBottom: "5%",
   //   },
-  //   input: {
-  //     fontFamily: "Poppins_400Regular",
-  //     fontSize: 16,
-  //     marginTop: "2%",
-  //   },
-  //   safeAreaView: {
-  //     borderColor: colors.darkBlue,
-  //     borderWidth: 1,
-  //     borderRadius: 3,
-  //     height: "95%",
-  //     width: "48%",
-  //     justifyContent: "center",
-  //     paddingHorizontal: "3%",
-  //   },
+
   //   convertButton: {
   //     height: "95%",
   //     width: "48%",
@@ -100,12 +111,6 @@ const miniGameStyle = StyleSheet.create({
   //     color: colors.fontColor,
   //     fontFamily: "Poppins_500Medium",
   //     fontSize: 16,
-  //   },
-  //   outputContainer: {
-  //     height: windowHeight * 0.08,
-  //     width: "100%",
-  //     backgroundColor: colors.lightBlue,
-  //     borderRadius: 3,
   //   },
 });
 export default miniGameStyle;
