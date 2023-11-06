@@ -14,19 +14,11 @@ const converterStyle = StyleSheet.create({
     paddingHorizontal: windowWidth * 0.08,
     paddingTop: windowHeight * 0.1,
   },
-  contentContainer: {
-    width: "100%",
-    height: "80%",
-  },
   header: {
     fontFamily: "Nunito_500Medium",
     fontSize: 32,
     color: colors.fontColor,
     marginBottom: windowHeight * 0.03,
-  },
-  tabContainer: {
-    width: "100%",
-    height: "49%",
   },
   bigButton: {
     height: windowHeight * 0.08,
@@ -60,11 +52,6 @@ const converterStyle = StyleSheet.create({
     justifyContent: "space-between",
     marginBottom: "5%",
   },
-  input: {
-    fontFamily: "Poppins_400Regular",
-    fontSize: 16,
-    marginTop: "2%",
-  },
   safeAreaView: {
     borderColor: colors.darkBlue,
     borderWidth: 1,
@@ -87,12 +74,6 @@ const converterStyle = StyleSheet.create({
     color: colors.fontColor,
     fontFamily: "Poppins_500Medium",
     fontSize: 16,
-  },
-  outputContainer: {
-    height: windowHeight * 0.08,
-    width: "100%",
-    backgroundColor: colors.lightBlue,
-    borderRadius: 3,
   },
 });
 export default converterStyle;

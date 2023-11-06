@@ -1,23 +1,11 @@
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet } from "react-native";
 import { colors } from "../../globalStyles/colors";
-import React from "react";
 import { Dimensions } from "react-native";
 
 const windowWidth = Dimensions.get("window").width;
 const windowHeight = Dimensions.get("window").height;
 
 const miniGameStyle = StyleSheet.create({
-  mainContainer: {
-    backgroundColor: colors.backgroundColor,
-    flex: 1,
-    width: windowWidth,
-    paddingHorizontal: windowWidth * 0.08,
-    paddingTop: windowHeight * 0.08,
-  },
-  contentContainer: {
-    width: "100%",
-    height: "80%",
-  },
   header: {
     fontFamily: "Nunito_500Medium",
     fontSize: 32,
@@ -25,22 +13,13 @@ const miniGameStyle = StyleSheet.create({
     marginBottom: windowHeight * 0.03,
     marginTop: windowHeight * 0.02,
   },
-  tabContainer: {
-    width: "100%",
-    height: "49%",
+  mainContainer: {
+    backgroundColor: colors.backgroundColor,
+    flex: 1,
+    width: windowWidth,
+    paddingHorizontal: windowWidth * 0.08,
+    paddingTop: windowHeight * 0.08,
   },
-  outputContainer: {
-    height: windowHeight * 0.08,
-    width: "100%",
-    backgroundColor: colors.lightBlue,
-    borderRadius: 3,
-  },
-  input: {
-    fontFamily: "Poppins_400Regular",
-    fontSize: 16,
-    marginTop: "2%",
-  },
-
   gameText: {
     color: colors.fontColor,
     fontFamily: "Poppins_500Medium",

@@ -8,6 +8,7 @@ import {
 } from "react-native";
 import React from "react";
 import converterStyle from "../converterStyle";
+import globalContentStyle from "../../../globalStyles/globalContentStyle";
 
 const AsciiToText = () => {
   const [text, onChangeText] = React.useState("");
@@ -21,7 +22,7 @@ const AsciiToText = () => {
             onChangeText={onChangeNumber}
             value={number}
             keyboardType="numeric"
-            style={converterStyle.input}
+            style={globalContentStyle.input}
             maxLength={3}
           />
         </SafeAreaView>
@@ -30,7 +31,7 @@ const AsciiToText = () => {
         </Pressable>
       </View>
       <Text style={converterStyle.label}>Output:</Text>
-      <View style={converterStyle.outputContainer}></View>
+      <View style={globalContentStyle.outputContainer}></View>
     </View>
   );
 };

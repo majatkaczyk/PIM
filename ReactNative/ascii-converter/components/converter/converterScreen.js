@@ -12,6 +12,7 @@ import {
   Poppins_400Regular,
   Poppins_500Medium,
 } from "@expo-google-fonts/poppins";
+import globalContentStyle from "../../globalStyles/globalContentStyle";
 
 const ConverterScreen = ({ navigation }) => {
   const [fontsLoaded] = useFonts({
@@ -26,9 +27,9 @@ const ConverterScreen = ({ navigation }) => {
   }
   return (
     <View style={converterStyle.mainContainer}>
-      <View style={converterStyle.contentContainer}>
+      <View style={globalContentStyle.contentContainer}>
         <Text style={converterStyle.header}>ASCII converter</Text>
-        <View style={converterStyle.tabContainer}>
+        <View style={globalContentStyle.tabContainer}>
           <TabNavigator isGame={false} />
         </View>
         <TouchableOpacity

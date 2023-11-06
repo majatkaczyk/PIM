@@ -9,16 +9,17 @@ import {
 import React from "react";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import miniGameStyle from "../miniGameStyle";
+import globalContentStyle from "../../../globalStyles/globalContentStyle";
 const TextToAsciiGame = () => {
   return (
     <View style={miniGameStyle.tabContentStyle}>
       <Text style={miniGameStyle.label}>Guess the ASCII decimal number:</Text>
-      <View style={miniGameStyle.outputContainer}></View>
+      <View style={globalContentStyle.outputContainer}></View>
       <Text style={miniGameStyle.label}>Your answer:</Text>
       <SafeAreaView style={miniGameStyle.safeAreaView}>
         <TextInput
           keyboardType="ascii-capable"
-          style={miniGameStyle.input}
+          style={globalContentStyle.input}
           maxLength={3}
         />
       </SafeAreaView>
