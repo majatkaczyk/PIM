@@ -1,7 +1,7 @@
 import { Pressable, Text, View, SafeAreaView, TextInput } from "react-native";
 import React from "react";
-import converterStyle from "../converterStyle";
-import globalContentStyle from "../../../globalStyles/globalContentStyle";
+import converterStyle from "./converterStyle";
+import globalContentStyle from "../../globalStyles/globalContentStyle";
 
 const AsciiToText = () => {
   const [text, onChangeText] = React.useState("");

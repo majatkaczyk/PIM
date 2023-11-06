@@ -1,9 +1,9 @@
 import React from "react";
 import { createMaterialTopTabNavigator } from "@react-navigation/material-top-tabs";
-import AsciiToText from "../components/converter/ascii-to-text/asciiToText";
-import TextToAscii from "../components/converter/text-to-ascii/textToAscii";
-import AsciiToTextGame from "../components/mini-game/ascii-to-text/asciiToText";
-import TextToAsciiGame from "../components/mini-game/text-to-ascii/textToAscii";
+import AsciiToText from "../components/converter/asciiToText";
+import TextToAscii from "../components/converter/textToAscii";
+import AsciiToTextGame from "../components/mini-game/asciiToText";
+import TextToAsciiGame from "../components/mini-game/textToAscii";
 import { colors } from "../globalStyles/colors";
 const Tab = createMaterialTopTabNavigator();
 

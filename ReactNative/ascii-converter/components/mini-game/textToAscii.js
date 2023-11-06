@@ -1,7 +1,7 @@
 import { Text, View, SafeAreaView, TextInput } from "react-native";
 import React from "react";
-import miniGameStyle from "../miniGameStyle";
-import globalContentStyle from "../../../globalStyles/globalContentStyle";
+import miniGameStyle from "./miniGameStyle";
+import globalContentStyle from "../../globalStyles/globalContentStyle";
 const TextToAsciiGame = () => {
   return (
     <View style={miniGameStyle.tabContentStyle}>
