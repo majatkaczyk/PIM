@@ -66,29 +66,5 @@ const miniGameStyle = StyleSheet.create({
     color: colors.fontColor,
     fontSize: 14,
   },
-
-  //   rowContainer: {
-  //     flexDirection: "row",
-  //     height: windowHeight * 0.08,
-  //     paddingTop: "2%",
-  //     width: "100%",
-  //     justifyContent: "space-between",
-  //     marginBottom: "5%",
-  //   },
-
-  //   convertButton: {
-  //     height: "95%",
-  //     width: "48%",
-  //     justifyContent: "center",
-  //     paddingHorizontal: "3%",
-  //     alignItems: "center",
-  //     backgroundColor: colors.blue,
-  //     borderRadius: 3,
-  //   },
-  //   buttonText: {
-  //     color: colors.fontColor,
-  //     fontFamily: "Poppins_500Medium",
-  //     fontSize: 16,
-  //   },
 });
 export default miniGameStyle;

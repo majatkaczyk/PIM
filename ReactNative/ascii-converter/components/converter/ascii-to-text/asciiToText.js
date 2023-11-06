@@ -1,11 +1,4 @@
-import {
-  Pressable,
-  StyleSheet,
-  Text,
-  View,
-  SafeAreaView,
-  TextInput,
-} from "react-native";
+import { Pressable, Text, View, SafeAreaView, TextInput } from "react-native";
 import React from "react";
 import converterStyle from "../converterStyle";
 import globalContentStyle from "../../../globalStyles/globalContentStyle";
@@ -37,5 +30,3 @@ const AsciiToText = () => {
 };
 
 export default AsciiToText;
-
-const styles = StyleSheet.create({});

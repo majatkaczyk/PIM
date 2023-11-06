@@ -1,4 +1,4 @@
-import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { Text, TouchableOpacity, View } from "react-native";
 import React from "react";
 import converterStyle from "./converterStyle";
 import TabNavigator from "../../navigators/tabNavigator";
@@ -44,5 +44,3 @@ const ConverterScreen = ({ navigation }) => {
 };
 
 export default ConverterScreen;
-
-const styles = StyleSheet.create({});

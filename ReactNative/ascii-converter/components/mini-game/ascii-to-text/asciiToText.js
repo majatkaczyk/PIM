@@ -1,11 +1,4 @@
-import {
-  Pressable,
-  StyleSheet,
-  Text,
-  View,
-  SafeAreaView,
-  TextInput,
-} from "react-native";
+import { Text, View, SafeAreaView, TextInput } from "react-native";
 import React from "react";
 import miniGameStyle from "../miniGameStyle";
 import globalContentStyle from "../../../globalStyles/globalContentStyle";
@@ -32,5 +25,3 @@ const AsciiToTextGame = () => {
 };
 
 export default AsciiToTextGame;
-
-const styles = StyleSheet.create({});

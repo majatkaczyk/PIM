@@ -1,13 +1,5 @@
-import {
-  StyleSheet,
-  Text,
-  View,
-  SafeAreaView,
-  Pressable,
-  TextInput,
-} from "react-native";
+import { Text, View, SafeAreaView, TextInput } from "react-native";
 import React from "react";
-import { TouchableOpacity } from "react-native-gesture-handler";
 import miniGameStyle from "../miniGameStyle";
 import globalContentStyle from "../../../globalStyles/globalContentStyle";
 const TextToAsciiGame = () => {
@@ -28,5 +20,3 @@ const TextToAsciiGame = () => {
 };
 
 export default TextToAsciiGame;
-
-const styles = StyleSheet.create({});
