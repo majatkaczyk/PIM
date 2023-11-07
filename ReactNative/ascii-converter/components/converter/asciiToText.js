@@ -13,7 +13,7 @@ const AsciiToText = () => {
       const char = String.fromCharCode(asciiNumber);
       setOutput(char);
     } else {
-      setOutput("Invalid output");
+      setOutput("Invalid input");
     }
   };
 
