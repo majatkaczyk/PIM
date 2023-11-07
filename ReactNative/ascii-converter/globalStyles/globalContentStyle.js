@@ -19,11 +19,14 @@ const globalContentStyle = StyleSheet.create({
     width: "100%",
     backgroundColor: colors.lightBlue,
     borderRadius: 3,
+    justifyContent: "center",
+    paddingHorizontal: "3%",
   },
   input: {
     fontFamily: "Poppins_400Regular",
     fontSize: 16,
     marginTop: "2%",
   },
+  outputText: { fontFamily: "Poppins_400Regular", fontSize: 16 },
 });
 export default globalContentStyle;
