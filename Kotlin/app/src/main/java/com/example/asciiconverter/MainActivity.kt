@@ -25,6 +25,9 @@ class MainActivity : AppCompatActivity() {
 //        val myButton: Button = findViewById(R.id.myButton)
 //        myButton.setBackgroundResource(R.drawable.moj_plik_drawable)
         val enterAsciiTextView = findViewById<TextView>(R.id.enter_ascii)
+
+        val notPressedDrawable = resources.getDrawable(R.drawable.notpressed, null)
+        val pressedDrawable = resources.getDrawable(R.drawable.pressed, null)
         var isASCIItoText = true
 
         // Dodaj obsługę przycisku
@@ -60,10 +63,16 @@ class MainActivity : AppCompatActivity() {
             // Zmieniamy tekst w TextView o id enter_ascii
             enterAsciiTextView.text = "Enter ASCII decimal number:"
             isASCIItoText = true
+
+            asciiBtn.background = pressedDrawable
+            textBtn.background = notPressedDrawable
         }
         textBtn.setOnClickListener{
             enterAsciiTextView.text = "Enter text:"
             isASCIItoText = false
+
+            asciiBtn.background = notPressedDrawable
+            textBtn.background = pressedDrawable
         }
     }
 }
