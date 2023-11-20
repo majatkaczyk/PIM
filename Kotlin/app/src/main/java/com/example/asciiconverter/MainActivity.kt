@@ -8,6 +8,7 @@ import android.widget.EditText
 import android.widget.ImageView
 import android.widget.TextView
 import kotlin.random.Random
+import android.app.AlertDialog
 
 class MainActivity : AppCompatActivity() {
     private lateinit var inputEditText: EditText
@@ -18,7 +19,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        // Inicjalizacja elementów interfejsu użytkownika
         inputEditText = findViewById(R.id.inputEditText)
         convertButton = findViewById(R.id.convertButton)
         resultTextView = findViewById(R.id.resultTextView)
@@ -47,7 +47,6 @@ class MainActivity : AppCompatActivity() {
         val gameOutput = findViewById<TextView>(R.id.gameOutput)
         val gameInput = findViewById<TextView>(R.id.gameInput)
 
-        // Dodaj obsługę przycisku
         convertButton.setOnClickListener {
             if(isASCIItoText){
                 val inputDecimal = inputEditText.text.toString()
@@ -77,7 +76,6 @@ class MainActivity : AppCompatActivity() {
             }
         }
         fun changeContainerHeight(value:Int){
-            // Pobierz obecne parametry układu
             val layoutParams = container.layoutParams
             layoutParams.height = value
             container.layoutParams = layoutParams
@@ -147,7 +145,6 @@ class MainActivity : AppCompatActivity() {
             inputEditText.visibility = View.INVISIBLE
             resultTextView.visibility = View.INVISIBLE
 
-            // Pobierz obecne parametry układu
             changeContainerHeight(996)
             refresh()
         }
@@ -171,13 +168,67 @@ class MainActivity : AppCompatActivity() {
             inputEditText.visibility = View.VISIBLE
             resultTextView.visibility = View.VISIBLE
 
-            // Pobierz obecne parametry układu
             changeContainerHeight(822)
         }
 
         refreshButton.setOnClickListener{
             refresh()
         }
+
+        fun convertTextToASCII(text: String): String {
+            val asciiValues = StringBuilder()
+
+            for (char in text) {
+                val asciiValue = char.toInt()
+                asciiValues.append(asciiValue)
+            }
+
+            return asciiValues.toString()
+        }
+
+        fun checkAnswer() {val builder = AlertDialog.Builder(this)
+            val inflater = layoutInflater
+            val dialogView = inflater.inflate(R.layout.custom_modal_dialog, null)
+
+            val messageTextView: TextView = dialogView.findViewById(R.id.dialogMessage)
+            val okButton: Button = dialogView.findViewById(R.id.positiveButton)
+
+            //checking:
+            val gameInputText = gameInput.text.toString()
+            val gameOutputText = gameOutput.text.toString()
+
+            if(isASCIItoText){
+                if (convertTextToASCII(gameInputText) == gameOutputText) {
+                    messageTextView.text = "Good answer!"
+                    refresh()
+                } else {
+                    messageTextView.text = "Wrong answer!"
+                }
+            }
+            else{
+                if (convertTextToASCII(gameOutputText) == gameInputText) {
+                    messageTextView.text = "Good answer!"
+                    refresh()
+                } else {
+                    messageTextView.text = "Wrong answer!"
+                }
+            }
+            builder.setView(dialogView)
+
+            val dialog: AlertDialog = builder.create()
+
+            okButton.setOnClickListener {
+                dialog.dismiss()
+            }
+
+            dialog.show()
+        }
+
+        checkAnswerBtn.setOnClickListener{
+            checkAnswer()
+        }
+
+
     }
 
 }

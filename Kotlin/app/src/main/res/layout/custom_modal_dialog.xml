@@ -1,0 +1,29 @@
+<!-- res/layout/custom_modal_dialog.xml -->
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:padding="16dp"
+    android:background="@drawable/rectangle_1">
+
+    <TextView
+        android:id="@+id/dialogMessage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="lorem"
+        android:textColor="#000000"
+        android:textSize="24dp"
+        android:layout_marginTop="54dp"
+        android:gravity="center"/>
+
+    <Button
+        android:id="@+id/positiveButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/dialogMessage"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/navbutton"
+        android:text="Try again"
+        android:layout_marginTop="83dp"
+        android:textColor="#FFFFFF" />
+</RelativeLayout>
