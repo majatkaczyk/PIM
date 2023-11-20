@@ -7,6 +7,21 @@
     android:background="#F0F2E9"
     tools:context=".MainActivity">
 
+    <Button
+        android:id="@+id/back_to_con"
+        android:layout_width="250dp"
+        android:layout_height="20dp"
+        android:layout_alignParentLeft="true"
+        android:layout_marginBottom="33dp"
+        android:layout_alignParentTop="true"
+        android:gravity="top"
+        android:visibility="invisible"
+        android:text="@string/back_to_con"
+        android:background="@android:color/transparent"
+        android:textAppearance="@style/back_to_con"
+        app:layout_constraintBottom_toTopOf="@+id/ascii_conve"
+        app:layout_constraintStart_toStartOf="@+id/ascii_conve" />
+
     <TextView
         android:id="@+id/ascii_conve"
         android:layout_width="321dp"
@@ -108,6 +123,20 @@
         android:layout_marginEnd="4dp"
         android:background="@drawable/convertbtn"
         android:text="Convert"
+        app:layout_constraintEnd_toEndOf="@+id/enter_ascii"
+        app:layout_constraintTop_toTopOf="@+id/rectangle_1" />
+
+    <Button
+        android:id="@+id/refreshButton"
+        android:layout_width="125dp"
+        android:layout_height="50dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="92dp"
+        android:layout_marginEnd="4dp"
+        android:background="@drawable/convertbtn"
+        android:text="Refresh"
+        android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="@+id/enter_ascii"
         app:layout_constraintTop_toTopOf="@+id/rectangle_1" />
 

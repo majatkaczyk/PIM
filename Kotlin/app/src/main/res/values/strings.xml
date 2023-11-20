@@ -6,4 +6,7 @@
     <string name="enter_ascii">
         Enter ASCII decimal number:
     </string>
+    <string name="back_to_con">
+        Back to converter
+    </string>
 </resources>

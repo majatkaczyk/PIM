@@ -1,6 +1,7 @@
 package com.example.asciiconverter
 
 import android.os.Bundle
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import android.widget.Button
 import android.widget.EditText
@@ -22,13 +23,19 @@ class MainActivity : AppCompatActivity() {
 
         val asciiBtn = findViewById<Button>(R.id.asciiBtn)
         val textBtn = findViewById<Button>(R.id.textBtn)
-//        val myButton: Button = findViewById(R.id.myButton)
-//        myButton.setBackgroundResource(R.drawable.moj_plik_drawable)
+        val navToMinigameBtn = findViewById<Button>(R.id.navToMinigame)
+        val refreshButton = findViewById<Button>(R.id.refreshButton)
+        val navBackBtn = findViewById<Button>(R.id.back_to_con)
+
+        val title = findViewById<TextView>(R.id.ascii_conve)
         val enterAsciiTextView = findViewById<TextView>(R.id.enter_ascii)
+        val container = findViewById<View>(R.id.rectangle_1)
 
         val notPressedDrawable = resources.getDrawable(R.drawable.notpressed, null)
         val pressedDrawable = resources.getDrawable(R.drawable.pressed, null)
+
         var isASCIItoText = true
+        var isCalculator = true
 
         // Dodaj obsługę przycisku
         convertButton.setOnClickListener {
@@ -61,18 +68,54 @@ class MainActivity : AppCompatActivity() {
         }
         asciiBtn.setOnClickListener {
             // Zmieniamy tekst w TextView o id enter_ascii
-            enterAsciiTextView.text = "Enter ASCII decimal number:"
+            if(isCalculator){
+                enterAsciiTextView.text = "Enter ASCII decimal number:"
+            }
+            else enterAsciiTextView.text = "Guess the text:"
+
             isASCIItoText = true
 
             asciiBtn.background = pressedDrawable
             textBtn.background = notPressedDrawable
         }
         textBtn.setOnClickListener{
-            enterAsciiTextView.text = "Enter text:"
+            if(isCalculator){
+                enterAsciiTextView.text = "Enter text:"
+            }
+            else enterAsciiTextView.text = "Guess the ASCII code:"
+
             isASCIItoText = false
 
             asciiBtn.background = notPressedDrawable
             textBtn.background = pressedDrawable
+        }
+//        navigation methods:
+        val inputTxt = findViewById<TextView>(R.id.enter_ascii)
+        val outputTxt = findViewById<TextView>(R.id.outputTxt)
+
+        navToMinigameBtn.setOnClickListener{
+            isCalculator = false
+            navToMinigameBtn.visibility = View.INVISIBLE
+            title.text = "Mini game"
+            if(isASCIItoText) inputTxt.text = "Guess the text:"
+            else inputTxt.text = "Guess the ASCII code:"
+            outputTxt.text = "Your answer:"
+            convertButton.visibility = View.INVISIBLE
+            refreshButton.visibility = View.VISIBLE
+            navBackBtn.visibility = View.VISIBLE
+
+        }
+
+        navBackBtn.setOnClickListener{
+            isCalculator=true
+            navToMinigameBtn.visibility = View.VISIBLE
+            title.text = "ASCII converter"
+            if(isASCIItoText) inputTxt.text = "Enter ASCII decimal number:"
+            else inputTxt.text = "Enter text:"
+            outputTxt.text = "Output:"
+            convertButton.visibility = View.VISIBLE
+            refreshButton.visibility = View.INVISIBLE
+            navBackBtn.visibility = View.INVISIBLE
         }
     }
 }
