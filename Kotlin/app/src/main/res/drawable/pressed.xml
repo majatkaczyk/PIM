@@ -4,20 +4,17 @@
     android:width="160dp"
     android:height="44dp"
     android:viewportWidth="160"
-    android:viewportHeight="44"
-    >
+    android:viewportHeight="44">
+
     <group>
         <clip-path
-            android:pathData="M0 0H160V44H0V0Z"
-            />
+            android:pathData="M0 0H160V44H0V0Z" />
         <path
-            android:pathData="M0 0V44H160V0"
-            android:fillColor="#FFFFFF"
-            />
+            android:pathData="M0 42H160"
+            android:fillColor="#FFFFFF" />
         <path
-            android:pathData="M0 0H160V44H0V0Z"
-            android:strokeWidth="2"
-            android:strokeColor="#19686A"
-            />
+            android:pathData="M0 44H160"
+            android:strokeWidth="3"
+            android:strokeColor="#19686A" />
     </group>
 </vector>

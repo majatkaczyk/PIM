@@ -5,6 +5,7 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageView
 import android.widget.TextView
 
 class MainActivity : AppCompatActivity() {
@@ -31,6 +32,7 @@ class MainActivity : AppCompatActivity() {
         val title = findViewById<TextView>(R.id.ascii_conve)
         val enterAsciiTextView = findViewById<TextView>(R.id.enter_ascii)
         val container = findViewById<View>(R.id.rectangle_1)
+        val imageView = findViewById<ImageView>(R.id.imageView)
 
         val notPressedDrawable = resources.getDrawable(R.drawable.notpressed, null)
         val pressedDrawable = resources.getDrawable(R.drawable.pressed, null)
@@ -46,7 +48,7 @@ class MainActivity : AppCompatActivity() {
                 try {
                     val asciiValue = inputDecimal.toInt()
 
-                    if (asciiValue in 0..127) {
+                    if (asciiValue in 33..126) {
                         val asciiChar = asciiValue.toChar()
                         resultTextView.text = "Znak ASCII: $asciiChar"
                     } else {
@@ -83,7 +85,9 @@ class MainActivity : AppCompatActivity() {
             isASCIItoText = true
 
             asciiBtn.background = pressedDrawable
+            asciiBtn.setTextColor(android.graphics.Color.parseColor("#19686A"))
             textBtn.background = notPressedDrawable
+            textBtn.setTextColor(android.graphics.Color.parseColor("#000000"))
         }
         textBtn.setOnClickListener{
             if(isCalculator){
@@ -94,7 +98,9 @@ class MainActivity : AppCompatActivity() {
             isASCIItoText = false
 
             asciiBtn.background = notPressedDrawable
+            asciiBtn.setTextColor(android.graphics.Color.parseColor("#000000"))
             textBtn.background = pressedDrawable
+            textBtn.setTextColor(android.graphics.Color.parseColor("#19686A"))
         }
 //        navigation methods:
         val inputTxt = findViewById<TextView>(R.id.enter_ascii)
@@ -114,6 +120,7 @@ class MainActivity : AppCompatActivity() {
             refreshButton.visibility = View.VISIBLE
             navBackBtn.visibility = View.VISIBLE
             checkAnswerBtn.visibility = View.VISIBLE
+            imageView.visibility = View.VISIBLE
 
             //set input/output style:
             gameInput.visibility = View.VISIBLE
@@ -136,6 +143,7 @@ class MainActivity : AppCompatActivity() {
             refreshButton.visibility = View.INVISIBLE
             navBackBtn.visibility = View.INVISIBLE
             checkAnswerBtn.visibility = View.INVISIBLE
+            imageView.visibility = View.INVISIBLE
 
             //set input/output style:
             gameInput.visibility = View.INVISIBLE
