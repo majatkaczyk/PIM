@@ -11,7 +11,8 @@
         android:id="@+id/back_to_con"
         android:layout_width="250dp"
         android:layout_height="20dp"
-        android:gravity="start"
+        android:gravity="center_vertical"
+        android:textSize="15dp"
         android:background="@android:color/transparent"
         android:text="@string/back_to_con"
         android:textAllCaps="false"
@@ -19,7 +20,8 @@
         android:visibility="invisible"
         app:layout_constraintBottom_toTopOf="@+id/ascii_conve"
         app:layout_constraintEnd_toEndOf="@+id/ascii_conve"
-        android:layout_marginEnd="40dp"/>
+        android:layout_marginEnd="40dp"
+        android:layout_marginBottom="20dp"/>
 
     <ImageView
         android:id="@+id/imageView"
@@ -27,6 +29,7 @@
         android:layout_height="wrap_content"
         android:src="@drawable/image"
         android:visibility="invisible"
+        android:layout_marginBottom="18dp"
         app:layout_constraintBottom_toTopOf="@+id/ascii_conve"
         app:layout_constraintStart_toStartOf="@+id/ascii_conve" />
 
@@ -69,6 +72,7 @@
         android:layout_alignParentTop="true"
         android:background="@drawable/pressed"
         android:text="ASCII to text"
+        android:textSize="15dp"
         app:layout_constraintStart_toStartOf="@+id/rectangle_1"
         app:layout_constraintTop_toTopOf="@+id/rectangle_1" />
 
@@ -81,6 +85,8 @@
         android:layout_alignParentTop="true"
         android:background="@drawable/notpressed"
         android:text="Text to ASCII"
+        android:textSize="15dp"
+        android:textColor="#707070"
         app:layout_constraintEnd_toEndOf="@+id/rectangle_1"
         app:layout_constraintTop_toTopOf="@+id/rectangle_1" />
 
@@ -116,6 +122,9 @@
 
     <EditText
         android:id="@+id/inputEditText"
+        android:textSize="23dp"
+        android:gravity="center_vertical"
+        android:paddingLeft="12dp"
         android:layout_width="125dp"
         android:layout_height="49dp"
         android:layout_marginTop="92dp"
@@ -125,6 +134,9 @@
         app:layout_constraintTop_toTopOf="@+id/rectangle_1" />
 
     <TextView
+        android:textSize="23dp"
+        android:gravity="center_vertical"
+        android:paddingLeft="12dp"
         android:id="@+id/gameOutput"
         android:layout_width="125dp"
         android:layout_height="49dp"
@@ -144,6 +156,7 @@
         android:layout_alignParentTop="true"
         android:layout_marginTop="92dp"
         android:layout_marginEnd="4dp"
+        android:textSize="15dp"
         android:background="@drawable/convertbtn"
         android:text="Convert"
         app:layout_constraintEnd_toEndOf="@+id/enter_ascii"
@@ -154,6 +167,7 @@
         android:id="@+id/refreshButton"
         android:layout_width="125dp"
         android:layout_height="50dp"
+        android:textSize="15dp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:layout_marginTop="92dp"
@@ -169,6 +183,7 @@
         android:id="@+id/navToMinigame"
         android:layout_width="320dp"
         android:layout_height="51dp"
+        android:textSize="15dp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:layout_marginTop="14dp"
@@ -185,8 +200,10 @@
         android:layout_height="51dp"
         android:layout_marginTop="10dp"
         android:background="@drawable/resultcontainer"
+        android:textSize="18dp"
+        android:gravity="center_vertical"
+        android:paddingLeft="12dp"
 
-        android:gravity="center"
         app:layout_constraintEnd_toEndOf="@+id/convertButton"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/inputEditText"
@@ -199,7 +216,9 @@
         android:layout_marginTop="10dp"
         android:background="@drawable/input"
 
-        android:gravity="center"
+        android:textSize="18dp"
+        android:gravity="center_vertical"
+        android:paddingLeft="12dp"
         android:visibility="invisible"
 
         app:layout_constraintEnd_toEndOf="@+id/convertButton"

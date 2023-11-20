@@ -7,6 +7,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.TextView
+import kotlin.random.Random
 
 class MainActivity : AppCompatActivity() {
     private lateinit var inputEditText: EditText
@@ -40,6 +41,12 @@ class MainActivity : AppCompatActivity() {
         var isASCIItoText = true
         var isCalculator = true
 
+        val inputTxt = findViewById<TextView>(R.id.enter_ascii)
+        val outputTxt = findViewById<TextView>(R.id.outputTxt)
+
+        val gameOutput = findViewById<TextView>(R.id.gameOutput)
+        val gameInput = findViewById<TextView>(R.id.gameInput)
+
         // Dodaj obsługę przycisku
         convertButton.setOnClickListener {
             if(isASCIItoText){
@@ -50,12 +57,12 @@ class MainActivity : AppCompatActivity() {
 
                     if (asciiValue in 33..126) {
                         val asciiChar = asciiValue.toChar()
-                        resultTextView.text = "Znak ASCII: $asciiChar"
+                        resultTextView.text = "$asciiChar"
                     } else {
-                        resultTextView.text = "Proszę wprowadzić liczbę ASCII z zakresu 0-127."
+                        resultTextView.text = "Please enter number between 33-126"
                     }
                 } catch (e: NumberFormatException) {
-                    resultTextView.text = "Proszę wprowadzić poprawną liczbę całkowitą."
+                    resultTextView.text = "Please enter proper number"
                 }
             }
             else{
@@ -63,9 +70,9 @@ class MainActivity : AppCompatActivity() {
 
                 if (inputCharacter.length == 1) {
                     val asciiValue = inputCharacter[0].toInt()
-                    resultTextView.text = "Wartość ASCII: $asciiValue"
+                    resultTextView.text = "$asciiValue"
                 } else {
-                    resultTextView.text = "Proszę wpisać dokładnie jeden znak."
+                    resultTextView.text = "Please enter one character"
                 }
             }
         }
@@ -75,40 +82,52 @@ class MainActivity : AppCompatActivity() {
             layoutParams.height = value
             container.layoutParams = layoutParams
         }
+
+        fun refresh(){
+            if (isASCIItoText){
+                val randomNumber = Random.nextInt(33, 127)
+                gameOutput.text = randomNumber.toString()
+            }
+            else{
+                val randomChar = Random.nextInt(33,127).toChar()
+                gameOutput.text = randomChar.toString()
+            }
+
+        }
+
         asciiBtn.setOnClickListener {
-            // Zmieniamy tekst w TextView o id enter_ascii
+            isASCIItoText = true
+
             if(isCalculator){
                 enterAsciiTextView.text = "Enter ASCII decimal number:"
             }
-            else enterAsciiTextView.text = "Guess the text:"
-
-            isASCIItoText = true
+            else {
+                enterAsciiTextView.text = "Guess the text:"
+                refresh()
+            }
 
             asciiBtn.background = pressedDrawable
             asciiBtn.setTextColor(android.graphics.Color.parseColor("#19686A"))
             textBtn.background = notPressedDrawable
-            textBtn.setTextColor(android.graphics.Color.parseColor("#000000"))
+            textBtn.setTextColor(android.graphics.Color.parseColor("#707070"))
         }
         textBtn.setOnClickListener{
+            isASCIItoText = false
+
             if(isCalculator){
                 enterAsciiTextView.text = "Enter text:"
             }
-            else enterAsciiTextView.text = "Guess the ASCII code:"
-
-            isASCIItoText = false
+            else {
+                enterAsciiTextView.text = "Guess the ASCII code:"
+                refresh()
+            }
 
             asciiBtn.background = notPressedDrawable
-            asciiBtn.setTextColor(android.graphics.Color.parseColor("#000000"))
+            asciiBtn.setTextColor(android.graphics.Color.parseColor("#707070"))
             textBtn.background = pressedDrawable
             textBtn.setTextColor(android.graphics.Color.parseColor("#19686A"))
         }
 //        navigation methods:
-        val inputTxt = findViewById<TextView>(R.id.enter_ascii)
-        val outputTxt = findViewById<TextView>(R.id.outputTxt)
-
-        val gameOutput = findViewById<TextView>(R.id.gameOutput)
-        val gameInput = findViewById<TextView>(R.id.gameInput)
-
         navToMinigameBtn.setOnClickListener{
             isCalculator = false
             navToMinigameBtn.visibility = View.INVISIBLE
@@ -130,6 +149,7 @@ class MainActivity : AppCompatActivity() {
 
             // Pobierz obecne parametry układu
             changeContainerHeight(996)
+            refresh()
         }
 
         navBackBtn.setOnClickListener{
@@ -155,6 +175,9 @@ class MainActivity : AppCompatActivity() {
             changeContainerHeight(822)
         }
 
+        refreshButton.setOnClickListener{
+            refresh()
+        }
     }
 
 }
