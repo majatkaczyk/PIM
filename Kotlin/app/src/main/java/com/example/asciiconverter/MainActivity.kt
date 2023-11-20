@@ -93,6 +93,9 @@ class MainActivity : AppCompatActivity() {
         val inputTxt = findViewById<TextView>(R.id.enter_ascii)
         val outputTxt = findViewById<TextView>(R.id.outputTxt)
 
+        val gameOutput = findViewById<TextView>(R.id.gameOutput)
+        val gameInput = findViewById<TextView>(R.id.gameInput)
+
         navToMinigameBtn.setOnClickListener{
             isCalculator = false
             navToMinigameBtn.visibility = View.INVISIBLE
@@ -103,6 +106,12 @@ class MainActivity : AppCompatActivity() {
             convertButton.visibility = View.INVISIBLE
             refreshButton.visibility = View.VISIBLE
             navBackBtn.visibility = View.VISIBLE
+
+            //set input/output style:
+            gameInput.visibility = View.VISIBLE
+            gameOutput.visibility = View.VISIBLE
+            inputEditText.visibility = View.INVISIBLE
+            resultTextView.visibility = View.INVISIBLE
 
         }
 
@@ -116,6 +125,12 @@ class MainActivity : AppCompatActivity() {
             convertButton.visibility = View.VISIBLE
             refreshButton.visibility = View.INVISIBLE
             navBackBtn.visibility = View.INVISIBLE
+
+            //set input/output style:
+            gameInput.visibility = View.INVISIBLE
+            gameOutput.visibility = View.INVISIBLE
+            inputEditText.visibility = View.VISIBLE
+            resultTextView.visibility = View.VISIBLE
         }
     }
 }

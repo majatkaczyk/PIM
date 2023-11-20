@@ -113,6 +113,17 @@
         app:layout_constraintStart_toStartOf="@+id/enter_ascii"
         app:layout_constraintTop_toTopOf="@+id/rectangle_1" />
 
+    <TextView
+        android:id="@+id/gameOutput"
+        android:layout_width="125dp"
+        android:layout_height="49dp"
+        android:layout_marginTop="92dp"
+        android:visibility="invisible"
+        android:background="@drawable/resultcontainer"
+        android:hint=""
+        app:layout_constraintStart_toStartOf="@+id/enter_ascii"
+        app:layout_constraintTop_toTopOf="@+id/rectangle_1" />
+
     <Button
         android:id="@+id/convertButton"
         android:layout_width="125dp"
@@ -164,5 +175,17 @@
         app:layout_constraintBottom_toBottomOf="@+id/rectangle_1"
         app:layout_constraintEnd_toEndOf="@+id/convertButton"
         app:layout_constraintStart_toStartOf="@+id/inputEditText" />
+
+    <EditText
+        android:id="@+id/gameInput"
+        android:layout_width="294dp"
+        android:layout_height="51dp"
+        android:background="@drawable/input"
+        android:gravity="center"
+        android:layout_marginBottom="29dp"
+        app:layout_constraintBottom_toBottomOf="@+id/rectangle_1"
+        app:layout_constraintEnd_toEndOf="@+id/convertButton"
+        app:layout_constraintStart_toStartOf="@+id/inputEditText"
+        android:visibility="invisible"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
