@@ -26,6 +26,7 @@ class MainActivity : AppCompatActivity() {
         val navToMinigameBtn = findViewById<Button>(R.id.navToMinigame)
         val refreshButton = findViewById<Button>(R.id.refreshButton)
         val navBackBtn = findViewById<Button>(R.id.back_to_con)
+        val checkAnswerBtn = findViewById<Button>(R.id.checkAnswerBtn)
 
         val title = findViewById<TextView>(R.id.ascii_conve)
         val enterAsciiTextView = findViewById<TextView>(R.id.enter_ascii)
@@ -65,6 +66,12 @@ class MainActivity : AppCompatActivity() {
                     resultTextView.text = "Proszę wpisać dokładnie jeden znak."
                 }
             }
+        }
+        fun changeContainerHeight(value:Int){
+            // Pobierz obecne parametry układu
+            val layoutParams = container.layoutParams
+            layoutParams.height = value
+            container.layoutParams = layoutParams
         }
         asciiBtn.setOnClickListener {
             // Zmieniamy tekst w TextView o id enter_ascii
@@ -106,6 +113,7 @@ class MainActivity : AppCompatActivity() {
             convertButton.visibility = View.INVISIBLE
             refreshButton.visibility = View.VISIBLE
             navBackBtn.visibility = View.VISIBLE
+            checkAnswerBtn.visibility = View.VISIBLE
 
             //set input/output style:
             gameInput.visibility = View.VISIBLE
@@ -113,6 +121,8 @@ class MainActivity : AppCompatActivity() {
             inputEditText.visibility = View.INVISIBLE
             resultTextView.visibility = View.INVISIBLE
 
+            // Pobierz obecne parametry układu
+            changeContainerHeight(996)
         }
 
         navBackBtn.setOnClickListener{
@@ -125,12 +135,18 @@ class MainActivity : AppCompatActivity() {
             convertButton.visibility = View.VISIBLE
             refreshButton.visibility = View.INVISIBLE
             navBackBtn.visibility = View.INVISIBLE
+            checkAnswerBtn.visibility = View.INVISIBLE
 
             //set input/output style:
             gameInput.visibility = View.INVISIBLE
             gameOutput.visibility = View.INVISIBLE
             inputEditText.visibility = View.VISIBLE
             resultTextView.visibility = View.VISIBLE
+
+            // Pobierz obecne parametry układu
+            changeContainerHeight(822)
         }
+
     }
+
 }
