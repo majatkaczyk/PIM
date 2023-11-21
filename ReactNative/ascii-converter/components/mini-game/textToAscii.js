@@ -1,4 +1,11 @@
-import { Text, View, SafeAreaView, TextInput, Pressable } from "react-native";
+import {
+  Text,
+  View,
+  SafeAreaView,
+  TextInput,
+  Pressable,
+  Modal,
+} from "react-native";
 import React, { useState, useEffect } from "react";
 import miniGameStyle from "./miniGameStyle";
 import globalContentStyle from "../../globalStyles/globalContentStyle";
@@ -7,6 +14,7 @@ const TextToAsciiGame = () => {
   const [randomChar, setRandomChar] = useState("");
   const [userAnswer, setUserAnswer] = useState("");
   const [result, setResult] = useState("");
+  const [modalVisible, setModalVisible] = useState(false);
   useEffect(() => {
     generateRandomChar();
   }, []);
@@ -22,12 +30,18 @@ const TextToAsciiGame = () => {
     const asciiValue = parseInt(inputValue);
 
     if (!isNaN(asciiValue) && asciiValue === randomChar.charCodeAt(0)) {
-      setResult("Correct!");
+      setResult("Good answer!");
+      setModalVisible(true);
     } else {
-      setResult("Incorrect. Try again.");
+      setResult("Wrong answer!");
+      setModalVisible(true);
     }
   };
   const refresh = () => {
+    generateRandomChar();
+  };
+  const closeModal = () => {
+    setModalVisible(false);
     generateRandomChar();
   };
   return (
@@ -59,7 +73,30 @@ const TextToAsciiGame = () => {
         <Text style={miniGameStyle.gameText}>Check answer</Text>
       </TouchableOpacity>
 
-      <Text style={miniGameStyle.result}>{result}</Text>
+      <Modal
+        animationType="slide"
+        transparent={true}
+        visible={modalVisible}
+        onRequestClose={() => {
+          setModalVisible(!modalVisible);
+        }}
+      >
+        <View style={globalContentStyle.modalContainer}>
+          <View style={globalContentStyle.modalBox}>
+            <View style={globalContentStyle.modalWhiteBox}>
+              <Text style={globalContentStyle.modalAnswer}>{result}</Text>
+              <TouchableOpacity
+                style={globalContentStyle.modalButton}
+                onPress={closeModal}
+              >
+                <Text style={globalContentStyle.modalTextButton}>
+                  Start again
+                </Text>
+              </TouchableOpacity>
+            </View>
+          </View>
+        </View>
+      </Modal>
     </View>
   );
 };
