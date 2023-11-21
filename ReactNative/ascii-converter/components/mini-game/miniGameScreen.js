@@ -1,5 +1,5 @@
 import { Text, View } from "react-native";
-import React from "react";
+import React, { useState, useEffect } from "react";
 import {
   useFonts,
   Nunito_400Regular,
@@ -18,6 +18,28 @@ import { TouchableOpacity } from "react-native-gesture-handler";
 import globalContentStyle from "../../globalStyles/globalContentStyle";
 
 const MiniGameScreen = ({ navigation }) => {
+  const [randomAscii, setRandomAscii] = useState(null);
+  const [userAnswer, setUserAnswer] = useState("");
+  const [result, setResult] = useState("");
+  useEffect(() => {
+    generateRandomAscii();
+  }, []);
+  const generateRandomAscii = () => {
+    const randomAsciiValue = Math.floor(Math.random() * (125 - 33 + 1)) + 33; // Zakres od 33 do 125
+    setRandomAscii(randomAsciiValue);
+    setUserAnswer("");
+    setResult("");
+  };
+
+  const checkAnswer = () => {
+    const inputText = userAnswer.trim();
+    const asciiValue = inputText.length === 1 ? inputText.charCodeAt(0) : NaN;
+    if (!isNaN(asciiValue) && asciiValue === randomAscii) {
+      setResult("Correct!");
+    } else {
+      setResult("Incorrect. Try again.");
+    }
+  };
   const [fontsLoaded] = useFonts({
     Nunito_400Regular,
     Nunito_500Medium,
@@ -43,12 +65,9 @@ const MiniGameScreen = ({ navigation }) => {
           <Text style={miniGameStyle.navigationText}>Back to converter</Text>
         </TouchableOpacity>
         <Text style={miniGameStyle.header}>Mini game</Text>
-        <View style={globalContentStyle.tabContainer}>
+        <View style={miniGameStyle.tabContainer}>
           <TabNavigator isGame={true} />
         </View>
-        <TouchableOpacity style={miniGameStyle.bigButton}>
-          <Text style={miniGameStyle.gameText}>Check answer</Text>
-        </TouchableOpacity>
       </View>
     </View>
   );

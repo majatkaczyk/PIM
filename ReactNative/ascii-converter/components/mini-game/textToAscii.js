@@ -2,6 +2,7 @@ import { Text, View, SafeAreaView, TextInput, Pressable } from "react-native";
 import React, { useState, useEffect } from "react";
 import miniGameStyle from "./miniGameStyle";
 import globalContentStyle from "../../globalStyles/globalContentStyle";
+import { TouchableOpacity } from "react-native-gesture-handler";
 const TextToAsciiGame = () => {
   const [randomChar, setRandomChar] = useState("");
   const [userAnswer, setUserAnswer] = useState("");
@@ -42,9 +43,10 @@ const TextToAsciiGame = () => {
           maxLength={3}
         />
       </SafeAreaView>
-      <Pressable style={miniGameStyle.convertButton} onPress={checkAnswer}>
-        <Text style={miniGameStyle.buttonText}>Check Answer</Text>
-      </Pressable>
+      <TouchableOpacity style={miniGameStyle.bigButton} onPress={checkAnswer}>
+        <Text style={miniGameStyle.gameText}>Check answer</Text>
+      </TouchableOpacity>
+
       <Text style={miniGameStyle.result}>{result}</Text>
     </View>
   );

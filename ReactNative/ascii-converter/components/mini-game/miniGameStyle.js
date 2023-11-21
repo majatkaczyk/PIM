@@ -13,6 +13,7 @@ const miniGameStyle = StyleSheet.create({
     marginBottom: windowHeight * 0.03,
     marginTop: windowHeight * 0.02,
   },
+  tabContainer: { width: "100%", height: "59%" },
   mainContainer: {
     backgroundColor: colors.backgroundColor,
     flex: 1,
@@ -29,7 +30,7 @@ const miniGameStyle = StyleSheet.create({
     height: windowHeight * 0.08,
     width: "100%",
     backgroundColor: colors.blue,
-    borderRadius: 10,
+    borderRadius: 3,
     marginTop: "5%",
     justifyContent: "center",
     alignItems: "center",
