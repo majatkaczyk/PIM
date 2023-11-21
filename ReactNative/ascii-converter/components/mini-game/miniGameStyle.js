@@ -35,6 +35,15 @@ const miniGameStyle = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
   },
+  refreshButton: {
+    height: "95%",
+    width: "48%",
+    justifyContent: "center",
+    paddingHorizontal: "3%",
+    alignItems: "center",
+    backgroundColor: colors.blue,
+    borderRadius: 3,
+  },
   safeAreaView: {
     borderColor: colors.darkBlue,
     borderWidth: 1,
@@ -66,6 +75,22 @@ const miniGameStyle = StyleSheet.create({
     fontFamily: "Poppins_300Light",
     color: colors.fontColor,
     fontSize: 14,
+  },
+  rowContainer: {
+    flexDirection: "row",
+    height: windowHeight * 0.08,
+    paddingTop: "2%",
+    width: "100%",
+    justifyContent: "space-between",
+    marginBottom: "5%",
+  },
+  randomNumberContainer: {
+    height: "95%",
+    width: "48%",
+    justifyContent: "center",
+    paddingHorizontal: "3%",
+    backgroundColor: colors.lightBlue,
+    borderRadius: 3,
   },
 });
 export default miniGameStyle;
