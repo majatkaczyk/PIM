@@ -13,7 +13,7 @@ const miniGameStyle = StyleSheet.create({
     marginBottom: windowHeight * 0.03,
     marginTop: windowHeight * 0.02,
   },
-  tabContainer: { width: "100%", height: "59%" },
+  tabContainer: { width: "100%", height: "62%" },
   mainContainer: {
     backgroundColor: colors.backgroundColor,
     flex: 1,

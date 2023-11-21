@@ -30,9 +30,16 @@ const AsciiToTextGame = () => {
   return (
     <View style={miniGameStyle.tabContentStyle}>
       <Text style={miniGameStyle.label}>Guess the text:</Text>
-      <View style={globalContentStyle.outputContainer}>
-        <Text>{randomAscii}</Text>
+      <View style={miniGameStyle.rowContainer}>
+        <View style={miniGameStyle.randomNumberContainer}>
+          <Text>{randomAscii}</Text>
+        </View>
+
+        <Pressable style={miniGameStyle.refreshButton}>
+          <Text style={miniGameStyle.gameText}>Refresh</Text>
+        </Pressable>
       </View>
+
       <Text style={miniGameStyle.label}>Your answer:</Text>
       <SafeAreaView style={miniGameStyle.safeAreaView}>
         <TextInput
