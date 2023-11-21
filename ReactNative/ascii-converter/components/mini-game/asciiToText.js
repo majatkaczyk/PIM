@@ -26,7 +26,9 @@ const AsciiToTextGame = () => {
       setResult("Incorrect. Try again.");
     }
   };
-
+  const refresh = () => {
+    generateRandomAscii();
+  };
   return (
     <View style={miniGameStyle.tabContentStyle}>
       <Text style={miniGameStyle.label}>Guess the text:</Text>
@@ -36,7 +38,9 @@ const AsciiToTextGame = () => {
         </View>
 
         <Pressable style={miniGameStyle.refreshButton}>
-          <Text style={miniGameStyle.gameText}>Refresh</Text>
+          <Text style={miniGameStyle.gameText} onPress={refresh}>
+            Refresh
+          </Text>
         </Pressable>
       </View>
 
