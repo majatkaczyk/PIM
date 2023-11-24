@@ -5,12 +5,12 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  const MyApp({Key? key});
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Ascii converter Flutter',
+      title: 'ASCII converter Flutter',
       theme: ThemeData(
         scaffoldBackgroundColor: const Color(0xFFF0F2E9),
       ),
@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key});
+  const MyHomePage({Key? key});
 
   @override
   State<MyHomePage> createState() => _MyHomePageState();
@@ -28,10 +28,19 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   int _selectedIndex = 0;
+  TextEditingController _asciiController = TextEditingController();
+  String _convertedCharacter = '';
 
   void _onItemTapped(int index) {
     setState(() {
       _selectedIndex = index;
+    });
+  }
+
+  void _convertAsciiToCharacter() {
+    int asciiCode = int.tryParse(_asciiController.text) ?? 0;
+    setState(() {
+      _convertedCharacter = String.fromCharCode(asciiCode);
     });
   }
 
@@ -52,14 +61,67 @@ class _MyHomePageState extends State<MyHomePage> {
                 fontSize: 32,
               ),
             ),
-            Center(
-              child: Container(
-                width: 320,
-                height: 274,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10),
-                  color: Colors.white,
-                ),
+            Container(
+              width: 320,
+              height: 274,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(10),
+                color: Colors.white,
+              ),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  Row(
+                    children: [
+                      Container(
+                          width: 134,
+                          height: 51,
+                          child: TextField(
+                            controller: _asciiController,
+                            keyboardType: TextInputType.number,
+                            decoration: InputDecoration(
+                              border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(5.0),
+                              ),
+                            ),
+                          )
+                      ),
+
+                      ElevatedButton(
+                        onPressed: _convertAsciiToCharacter,
+                        style: ElevatedButton.styleFrom(
+                          primary: const Color(0xffA0CFD0),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(3),
+                          ),
+                          minimumSize: const Size(134, 51),
+                        ),
+                        child: const Text(
+                          'Convert',
+                          style: TextStyle(
+                            fontSize: 18,
+                            color: Colors.black,
+
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+
+                  Container(
+                    width: 281,
+                    height: 51,
+                    color: Color(0xffE7F3F3),
+                    child: Text(
+                      'Wynik: $_convertedCharacter',
+                      style: TextStyle(
+                        fontSize: 18,
+                        color: Colors.black,
+
+                      ),
+                    ),
+                  )
+                ],
               ),
             ),
             Center(
