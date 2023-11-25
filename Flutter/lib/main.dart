@@ -5,7 +5,7 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key});
+  const MyApp({super.key, Key? ke});
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatefulWidget {
-  const MyHomePage({Key? key});
+  const MyHomePage({super.key, Key? ke});
 
   @override
   State<MyHomePage> createState() => _MyHomePageState();
@@ -28,7 +28,7 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   int _selectedIndex = 0;
-  TextEditingController _asciiController = TextEditingController();
+  final TextEditingController _asciiController = TextEditingController();
   String _convertedCharacter = '';
 
   void _onItemTapped(int index) {
@@ -47,20 +47,25 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+
       appBar: AppBar(
         backgroundColor: const Color(0xFFF0F2E9),
+
       ),
-      body: SingleChildScrollView(
+      body: Padding(padding: const EdgeInsets.symmetric(horizontal: 45.0),
+      child:SingleChildScrollView(
         child: Column(
+
           mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            const Text(
-              "ASCII converter",
+          crossAxisAlignment: CrossAxisAlignment.start,
+
+          children: <Widget>[
+
+            const Text("ASCII converter",
               style: TextStyle(
                 fontSize: 32,
-              ),
-            ),
+              ),),
+
             Container(
               width: 320,
               height: 274,
@@ -73,7 +78,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 children: [
                   Row(
                     children: [
-                      Container(
+                      SizedBox(
                           width: 134,
                           height: 51,
                           child: TextField(
@@ -90,7 +95,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       ElevatedButton(
                         onPressed: _convertAsciiToCharacter,
                         style: ElevatedButton.styleFrom(
-                          primary: const Color(0xffA0CFD0),
+                          backgroundColor: const Color(0xffA0CFD0),
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(3),
                           ),
@@ -111,10 +116,10 @@ class _MyHomePageState extends State<MyHomePage> {
                   Container(
                     width: 281,
                     height: 51,
-                    color: Color(0xffE7F3F3),
+                    color: const Color(0xffE7F3F3),
                     child: Text(
                       'Wynik: $_convertedCharacter',
-                      style: TextStyle(
+                      style: const TextStyle(
                         fontSize: 18,
                         color: Colors.black,
 
@@ -130,7 +135,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   // Działania po naciśnięciu przycisku
                 },
                 style: ElevatedButton.styleFrom(
-                  primary: const Color(0xff19686a),
+                  backgroundColor: const Color(0xff19686a),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(10),
                   ),
@@ -147,7 +152,7 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
           ],
         ),
-      ),
+      ),)
     );
   }
 }
