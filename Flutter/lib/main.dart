@@ -65,7 +65,14 @@ child: Scaffold(appBar: AppBar(
               style: TextStyle(
                 fontSize: 32,
               ),),
-            const TabBar(tabs: [Tab(text: "ASCII to text"), Tab(text: "Text to ACII")]),
+            const TabBar(
+                tabs:
+                [Tab(text: "ASCII to text"),
+                  Tab(text: "Text to ACII")
+                ],
+            indicatorColor: Color(0xff19686A),
+            labelColor: Color(0xff19686A),
+            ),
             const SizedBox(height: 500,
                 child: TabBarView(
                   children: [
