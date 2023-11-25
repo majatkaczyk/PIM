@@ -46,13 +46,13 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return DefaultTabController(
+      length: 2,
+child: Scaffold(appBar: AppBar(
+  backgroundColor: const Color(0xFFF0F2E9),
 
-      appBar: AppBar(
-        backgroundColor: const Color(0xFFF0F2E9),
-
-      ),
-      body: Padding(padding: const EdgeInsets.symmetric(horizontal: 45.0),
+),
+    body: Padding(padding: const EdgeInsets.symmetric(horizontal: 45.0),
       child:SingleChildScrollView(
         child: Column(
 
@@ -65,7 +65,7 @@ class _MyHomePageState extends State<MyHomePage> {
               style: TextStyle(
                 fontSize: 32,
               ),),
-
+ const TabBar(tabs: [Tab(text: "ASCII to text"), Tab(text: "Text to ACII")]),
             Container(
               width: 320,
               height: 274,
@@ -152,7 +152,8 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
           ],
         ),
-      ),)
+      ),))
+
     );
   }
 }
