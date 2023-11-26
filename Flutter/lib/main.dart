@@ -43,7 +43,12 @@ class _MyHomePageState extends State<MyHomePage> {
       _convertedCharacter = String.fromCharCode(asciiCode);
     });
   }
-
+  void goToMiniGame() {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => const MiniGameScreen()), // Dodano
+    );
+  }
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
@@ -181,9 +186,7 @@ class _MyHomePageState extends State<MyHomePage> {
               Center(
                 child: Container(padding: const EdgeInsets.symmetric(vertical: 20.0),
                     child: ElevatedButton(
-                      onPressed: () {
-                        // Działania po naciśnięciu przycisku
-                      },
+                      onPressed: goToMiniGame,
                       style: ElevatedButton.styleFrom(
                         backgroundColor: const Color(0xff19686a),
                         shape: RoundedRectangleBorder(
@@ -208,3 +211,17 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 }
+
+class MiniGameScreen extends StatelessWidget {
+  const MiniGameScreen({super.key});
+
+      @override
+      Widget build(BuildContext context) {
+      return DefaultTabController(length: 2, child: Scaffold(
+          appBar: AppBar(backgroundColor: const Color(0xFFF0F2E9),),
+          body: const Padding(padding: EdgeInsets.symmetric(horizontal: 45.0),)
+      ));
+
+
+      }
+      }
