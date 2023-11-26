@@ -39,10 +39,32 @@ class _MyHomePageState extends State<MyHomePage> {
 
   void _convertAsciiToCharacter() {
     int asciiCode = int.tryParse(asciiController.text) ?? 0;
-    setState(() {
-      _convertedCharacter = String.fromCharCode(asciiCode);
-    });
+
+    if (asciiCode >= 33 && asciiCode <= 126) {
+      setState(() {
+        _convertedCharacter = String.fromCharCode(asciiCode);
+      });
+    } else {
+      setState(() {
+        _convertedCharacter = 'Please enter proper number';
+      });
+    }
   }
+
+  void _convertTextToAscii() {
+    String text = asciiController.text;
+    if (text.isNotEmpty) {
+      int asciiCode = text.codeUnitAt(0);
+      setState(() {
+        _convertedCharacter = asciiCode.toString();
+      });
+    } else {
+      setState(() {
+        _convertedCharacter = "Please enter one character";
+      });
+    }
+  }
+
   void goToMiniGame() {
     Navigator.push(
       context,
@@ -152,7 +174,7 @@ class _MyHomePageState extends State<MyHomePage> {
                               ),
                             ),
                             ElevatedButton(
-                              onPressed: _convertAsciiToCharacter,
+                              onPressed: _convertTextToAscii,
                               style: ElevatedButton.styleFrom(
                                 backgroundColor: const Color(0xffA0CFD0),
                                 minimumSize: const Size(120, 51),
@@ -160,13 +182,13 @@ class _MyHomePageState extends State<MyHomePage> {
                                   borderRadius: BorderRadius.circular(3),
                                 ),
                               ),
-                              child: const Text(
-                                'Convert',
-                                style: TextStyle(
+
+                              child: Text("Convert",
+                                style: const TextStyle(
                                   fontSize: 18,
                                   color: Colors.black,
-                                ),
-                              ),),
+
+                                ),),)
 
                           ],),
                         const Padding(padding: EdgeInsets.symmetric(vertical: 20.0), child: Text("Output:")),
