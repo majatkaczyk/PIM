@@ -129,32 +129,76 @@ class _MyHomePageState extends State<MyHomePage> {
                           ),),)
                         
                       ]),
-                  Center(child: Text("2nd card"))
+                  Column(mainAxisAlignment: MainAxisAlignment.start,crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        const Padding(padding: EdgeInsets.symmetric(vertical: 20.0), child: Text("Enter text:")),
+                        Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: <Widget>
+                          [SizedBox( width: 120, height: 51,
+                              child: TextField(
+                                keyboardType: TextInputType.text,
+                                controller: asciiController,
+                                decoration: const InputDecoration(
+                                  border: OutlineInputBorder(
+                                      borderRadius: BorderRadius.all(Radius.circular(5.0))
+                                  ),
+                                ),
+                              ),
+                            ),
+                            ElevatedButton(
+                              onPressed: _convertAsciiToCharacter,
+                              style: ElevatedButton.styleFrom(
+                                backgroundColor: const Color(0xffA0CFD0),
+                                minimumSize: const Size(120, 51),
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(3),
+                                ),
+                              ),
+                              child: const Text(
+                                'Convert',
+                                style: TextStyle(
+                                  fontSize: 18,
+                                  color: Colors.black,
+                                ),
+                              ),),
+
+                          ],),
+                        const Padding(padding: EdgeInsets.symmetric(vertical: 20.0), child: Text("Output:")),
+                        Container(width: 281, height: 51,
+                          decoration: const BoxDecoration(color: Color(0xffE7F3F3), borderRadius: BorderRadius.all(Radius.circular(3.0))),
+                          child: Text(_convertedCharacter,
+                            style: const TextStyle(
+                              fontSize: 18,
+                              color: Colors.black,
+
+                            ),),)
+
+                      ]),
                 ],
               )),),
 
 
               Center(
-                child: Container(padding: EdgeInsets.symmetric(vertical: 20.0),
+                child: Container(padding: const EdgeInsets.symmetric(vertical: 20.0),
                     child: ElevatedButton(
-                  onPressed: () {
-                    // Działania po naciśnięciu przycisku
-                  },
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: const Color(0xff19686a),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    minimumSize: const Size(320, 51),
-                  ),
-                  child: const Text(
-                    'Mini game',
-                    style: TextStyle(
-                      fontSize: 18,
-                      color: Colors.white,
-                    ),
-                  ),
-                ),)
+                      onPressed: () {
+                        // Działania po naciśnięciu przycisku
+                      },
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: const Color(0xff19686a),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        minimumSize: const Size(320, 51),
+                      ),
+                          child: const Text(
+                            'Mini game',
+                            style: TextStyle(
+                              fontSize: 18,
+                              color: Colors.white,
+                            ),
+                          ),
+                        ),)
 
               ),
             ],
