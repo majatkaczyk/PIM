@@ -65,21 +65,27 @@ child: Scaffold(appBar: AppBar(
               style: TextStyle(
                 fontSize: 32,
               ),),
-            const TabBar(
-                tabs:
-                [Tab(text: "ASCII to text"),
-                  Tab(text: "Text to ACII")
-                ],
-            indicatorColor: Color(0xff19686A),
-            labelColor: Color(0xff19686A),
-            ),
-            const SizedBox(height: 500,
-                child: TabBarView(
-                  children: [
-                    Center(child: Text("1st card")),
-                  Center(child: Text("2nd card"))
-                  ],
-                )),
+            Container(
+              color: const Color(0xffffffff),
+
+              child:const TabBar(
+              tabs:
+              [Tab(text: "ASCII to text"),
+                Tab(text: "Text to ACII")
+              ],
+              indicatorColor: Color(0xff19686A),
+              indicatorSize: TabBarIndicatorSize.tab,
+              labelColor: Color(0xff19686A),
+            ),),
+            Container(color: const Color(0xffffffff),child: const SizedBox(height: 300,
+              child: TabBarView(
+
+              children: [
+                Center(child: Text("1st card")),
+                Center(child: Text("2nd card"))
+              ],
+            )),),
+
             Container(
               width: 320,
               height: 274,
