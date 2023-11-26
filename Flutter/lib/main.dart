@@ -76,16 +76,20 @@ child: Scaffold(appBar: AppBar(
               indicatorSize: TabBarIndicatorSize.tab,
               labelColor: Color(0xff19686A),
             ),),
-            Container(decoration:
-            const BoxDecoration(
+            Container(padding: const EdgeInsets.symmetric(horizontal: 30.0),
+              decoration: const BoxDecoration(
               borderRadius: BorderRadius.only(
                 bottomLeft: Radius.circular(10.0), bottomRight: Radius.circular(10.0))
               , color: Color(0xffffffff),
               ),child: const SizedBox(height: 300,
                 child: TabBarView(
-
                 children: [
-                  Center(child: Text("1st card")),
+                  Column(mainAxisAlignment: MainAxisAlignment.start,crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Padding(padding: EdgeInsets.symmetric(vertical: 20.0), child: Text("Enter ASCII decimal number:"),)
+
+                        
+                      ]),
                   Center(child: Text("2nd card"))
                 ],
               )),),
