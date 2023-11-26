@@ -46,7 +46,7 @@ class _MyHomePageState extends State<MyHomePage> {
   void goToMiniGame() {
     Navigator.push(
       context,
-      MaterialPageRoute(builder: (context) => const MiniGameScreen()), // Dodano
+      MaterialPageRoute(builder: (context) =>  const MyMiniGame()),
     );
   }
   @override
@@ -86,7 +86,8 @@ class _MyHomePageState extends State<MyHomePage> {
                 borderRadius: BorderRadius.only(
                   bottomLeft: Radius.circular(10.0), bottomRight: Radius.circular(10.0))
                 , color: Color(0xffffffff),
-              ),child:  SizedBox(height: 300,
+                ),
+                child:  SizedBox(height: 300,
                 child: TabBarView(
                 children: <Widget>[
                   Column(mainAxisAlignment: MainAxisAlignment.start,crossAxisAlignment: CrossAxisAlignment.start,
@@ -180,7 +181,8 @@ class _MyHomePageState extends State<MyHomePage> {
 
                       ]),
                 ],
-              )),),
+              )),
+              ),
 
 
               Center(
@@ -206,20 +208,165 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
             ],
           ),
-        ),))
+        )
+          ,))
 
     );
   }
 }
+class MyMiniGame extends StatefulWidget {
+  const MyMiniGame({super.key, Key? ke});
 
-class MiniGameScreen extends StatelessWidget {
-  const MiniGameScreen({super.key});
+  @override
+  State<MyMiniGame> createState() => _MyMiniGameState();
+}
+
+class _MyMiniGameState extends State<MyMiniGame> {
+
 
       @override
       Widget build(BuildContext context) {
       return DefaultTabController(length: 2, child: Scaffold(
           appBar: AppBar(backgroundColor: const Color(0xFFF0F2E9),),
-          body: const Padding(padding: EdgeInsets.symmetric(horizontal: 45.0),)
+          body:
+           Padding(padding: const EdgeInsets.symmetric(horizontal: 45.0),
+            child: SingleChildScrollView(
+                child: Column(mainAxisAlignment: MainAxisAlignment.center, crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    const Text("Mini game",
+                    style: TextStyle(
+                      fontSize: 32,
+                    ),),
+                    Container(
+                        decoration: const BoxDecoration(
+                            color: Color(0xffffffff),
+                            borderRadius: BorderRadius.only(topLeft: Radius.circular(10.0),
+                                topRight: Radius.circular(10.0))),
+                      child: const TabBar(tabs:[
+                        Tab(text: "ASCII to text"),
+                        Tab(text: "Text to ACII")],
+                        indicatorColor: Color(0xff19686A),
+                        indicatorSize: TabBarIndicatorSize.tab,
+                        labelColor: Color(0xff19686A),)),
+                    Container(padding: const EdgeInsets.symmetric(horizontal: 30.0),
+                        decoration: const BoxDecoration(
+                          borderRadius: BorderRadius.only(
+                              bottomLeft: Radius.circular(10.0), bottomRight: Radius.circular(10.0))
+                          , color: Color(0xffffffff),
+                        ),
+                    child: SizedBox(height: 350,
+                        child: TabBarView(
+                          children: <Widget>[
+                            Column(mainAxisAlignment: MainAxisAlignment.start,crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  const Padding(padding: EdgeInsets.symmetric(vertical: 20.0), child: Text("Guess the text:")),
+                                  Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                    children: <Widget>
+                                    [Container(width: 120, height: 51,
+                                        decoration: const BoxDecoration(color: Color(0xffE7F3F3), borderRadius: BorderRadius.all(Radius.circular(3.0))),
+                                        child: const Text("char",
+                                          style: TextStyle(
+                                            fontSize: 18,
+                                            color: Colors.black,
+
+                                          ),),),
+                                      ElevatedButton(
+                                        onPressed: ()=>{},
+                                        style: ElevatedButton.styleFrom(
+                                          backgroundColor: const Color(0xffA0CFD0),
+                                          minimumSize: const Size(120, 51),
+                                          shape: RoundedRectangleBorder(
+                                            borderRadius: BorderRadius.circular(3),
+                                          ),
+                                        ),
+                                        child: const Text(
+                                          'Refresh',
+                                          style: TextStyle(
+                                            fontSize: 18,
+                                            color: Colors.black,
+                                          ),
+                                        ),),
+
+                                    ],),
+                                  const Padding(padding: EdgeInsets.symmetric(vertical: 20.0), child: Text("Your answer:")),
+                                  const SizedBox( width: 281, height: 51,
+                                    child: TextField(
+                                      keyboardType: TextInputType.text,
+                                      // controller: asciiController,
+                                      decoration: InputDecoration(
+                                        border: OutlineInputBorder(
+                                            borderRadius: BorderRadius.all(Radius.circular(5.0))
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                  Container(padding: const EdgeInsets.symmetric(vertical: 20.0), child:ElevatedButton(
+                                    onPressed: ()=>{},
+                                    style: ElevatedButton.styleFrom(
+                                      backgroundColor: const Color(0xffA0CFD0),
+                                      minimumSize: const Size(281, 51),
+                                      shape: RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.circular(3),
+                                      ),
+                                    ),
+                                    child: const Text(
+                                      'Check answer',
+                                      style: TextStyle(
+                                        fontSize: 18,
+                                        color: Colors.black,
+                                      ),
+                                    ),),)
+                                ]),
+                            Column(mainAxisAlignment: MainAxisAlignment.start,crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  const Padding(padding: EdgeInsets.symmetric(vertical: 20.0), child: Text("Enter text:")),
+                                  Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                    children: <Widget>
+                                    [const SizedBox( width: 120, height: 51,
+                                        child: TextField(
+                                          keyboardType: TextInputType.text,
+                                          // controller: asciiController,
+                                          decoration: InputDecoration(
+                                            border: OutlineInputBorder(
+                                                borderRadius: BorderRadius.all(Radius.circular(5.0))
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                      ElevatedButton(
+                                        onPressed: ()=> {},
+                                        style: ElevatedButton.styleFrom(
+                                          backgroundColor: const Color(0xffA0CFD0),
+                                          minimumSize: const Size(120, 51),
+                                          shape: RoundedRectangleBorder(
+                                            borderRadius: BorderRadius.circular(3),
+                                          ),
+                                        ),
+                                        child: const Text(
+                                          'Convert',
+                                          style: TextStyle(
+                                            fontSize: 18,
+                                            color: Colors.black,
+                                          ),
+                                        ),),
+
+                                    ],),
+                                  const Padding(padding: EdgeInsets.symmetric(vertical: 20.0), child: Text("Output:")),
+                                  Container(width: 281, height: 51,
+                                    decoration: const BoxDecoration(color: Color(0xffE7F3F3), borderRadius: BorderRadius.all(Radius.circular(3.0))),
+                                    child: const Text("_convertedCharacter",
+                                      style: TextStyle(
+                                        fontSize: 18,
+                                        color: Colors.black,
+
+                                      ),),)
+
+                                ]),
+                          ],
+                        )),)
+                    ],),
+                ),),
+
       ));
 
 
