@@ -222,7 +222,45 @@ class MyMiniGame extends StatefulWidget {
 }
 
 class _MyMiniGameState extends State<MyMiniGame> {
+  TextEditingController answerController = TextEditingController();
+  void _checkAnswer() {
+    String answer = answerController.text.toLowerCase();
+    print("Answer: $answer");
 
+      _showAnswerModal();
+
+  }
+  void _showAnswerModal() {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+
+          content: SizedBox(
+            width: 281,
+            height: 51,
+            child: Container(
+              decoration: const BoxDecoration(
+                borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(10.0),
+                  topRight: Radius.circular(10.0),
+                ),
+              ),
+              child: const Text("That's the correct answer!"),
+            ),
+          ),
+          actions: [
+            ElevatedButton(
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+              child: const Text("OK"),
+            ),
+          ],
+        );
+      },
+    );
+  }
 
       @override
       Widget build(BuildContext context) {
@@ -257,126 +295,128 @@ class _MyMiniGameState extends State<MyMiniGame> {
                     child: SizedBox(height: 350,
                         child: TabBarView(
                           children: <Widget>[
-                            Column(mainAxisAlignment: MainAxisAlignment.start,crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  const Padding(padding: EdgeInsets.symmetric(vertical: 20.0), child: Text("Guess the text:")),
-                                  Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                    children: <Widget>
-                                    [Container(width: 120, height: 51,
-                                        decoration: const BoxDecoration(color: Color(0xffE7F3F3), borderRadius: BorderRadius.all(Radius.circular(3.0))),
-                                        child: const Text("char",
-                                          style: TextStyle(
-                                            fontSize: 18,
-                                            color: Colors.black,
-
-                                          ),),),
-                                      ElevatedButton(
-                                        onPressed: ()=>{},
-                                        style: ElevatedButton.styleFrom(
-                                          backgroundColor: const Color(0xffA0CFD0),
-                                          minimumSize: const Size(120, 51),
-                                          shape: RoundedRectangleBorder(
-                                            borderRadius: BorderRadius.circular(3),
-                                          ),
-                                        ),
-                                        child: const Text(
-                                          'Refresh',
-                                          style: TextStyle(
-                                            fontSize: 18,
-                                            color: Colors.black,
-                                          ),
-                                        ),),
-
-                                    ],),
-                                  const Padding(padding: EdgeInsets.symmetric(vertical: 20.0), child: Text("Your answer:")),
-                                  const SizedBox( width: 281, height: 51,
-                                    child: TextField(
-                                      keyboardType: TextInputType.text,
-                                      // controller: asciiController,
-                                      decoration: InputDecoration(
-                                        border: OutlineInputBorder(
-                                            borderRadius: BorderRadius.all(Radius.circular(5.0))
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                  Container(padding: const EdgeInsets.symmetric(vertical: 20.0), child:ElevatedButton(
-                                    onPressed: ()=>{},
-                                    style: ElevatedButton.styleFrom(
-                                      backgroundColor: const Color(0xffA0CFD0),
-                                      minimumSize: const Size(281, 51),
-                                      shape: RoundedRectangleBorder(
-                                        borderRadius: BorderRadius.circular(3),
-                                      ),
-                                    ),
-                                    child: const Text(
-                                      'Check answer',
-                                      style: TextStyle(
-                                        fontSize: 18,
-                                        color: Colors.black,
-                                      ),
-                                    ),),)
-                                ]),
-                            Column(mainAxisAlignment: MainAxisAlignment.start,crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  const Padding(padding: EdgeInsets.symmetric(vertical: 20.0), child: Text("Guess the ASCII decimal number:")),
-                                  Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                    children: <Widget>
-                                    [Container(width: 120, height: 51,
-                                        decoration: const BoxDecoration(color: Color(0xffE7F3F3), borderRadius: BorderRadius.all(Radius.circular(3.0))),
-                                        child: const Text("char",
-                                          style: TextStyle(
-                                            fontSize: 18,
-                                            color: Colors.black,
-
-                                          ),),),
-                                      ElevatedButton(
-                                        onPressed: ()=>{},
-                                        style: ElevatedButton.styleFrom(
-                                          backgroundColor: const Color(0xffA0CFD0),
-                                          minimumSize: const Size(120, 51),
-                                          shape: RoundedRectangleBorder(
-                                            borderRadius: BorderRadius.circular(3),
-                                          ),
-                                        ),
-                                        child: const Text(
-                                          'Refresh',
-                                          style: TextStyle(
-                                            fontSize: 18,
-                                            color: Colors.black,
-                                          ),
-                                        ),),
-
-                                    ],),
-                                  const Padding(padding: EdgeInsets.symmetric(vertical: 20.0), child: Text("Your answer:")),
-                                  const SizedBox( width: 281, height: 51,
-                                    child: TextField(
-                                      keyboardType: TextInputType.text,
-                                      // controller: asciiController,
-                                      decoration: InputDecoration(
-                                        border: OutlineInputBorder(
-                                            borderRadius: BorderRadius.all(Radius.circular(5.0))
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                  Container(padding: const EdgeInsets.symmetric(vertical: 20.0), child:ElevatedButton(
-                                    onPressed: ()=>{},
-                                    style: ElevatedButton.styleFrom(
-                                      backgroundColor: const Color(0xffA0CFD0),
-                                      minimumSize: const Size(281, 51),
-                                      shape: RoundedRectangleBorder(
-                                        borderRadius: BorderRadius.circular(3),
-                                      ),
-                                    ),
-                                    child: const Text(
-                                      'Check answer',
-                                      style: TextStyle(
-                                        fontSize: 18,
-                                        color: Colors.black,
-                                      ),
-                                    ),),)
-                                ]),
+                            _buildGuessWidget("Guess the text:", "char"),
+                            _buildGuessWidget("Guess the ASCII decimal number:", "char"),
+                            // Column(mainAxisAlignment: MainAxisAlignment.start,crossAxisAlignment: CrossAxisAlignment.start,
+                            //     children: [
+                            //       const Padding(padding: EdgeInsets.symmetric(vertical: 20.0), child: Text("Guess the text:")),
+                            //       Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            //         children: <Widget>
+                            //         [Container(width: 120, height: 51,
+                            //             decoration: const BoxDecoration(color: Color(0xffE7F3F3), borderRadius: BorderRadius.all(Radius.circular(3.0))),
+                            //             child: const Text("char",
+                            //               style: TextStyle(
+                            //                 fontSize: 18,
+                            //                 color: Colors.black,
+                            //
+                            //               ),),),
+                            //           ElevatedButton(
+                            //             onPressed: ()=>{},
+                            //             style: ElevatedButton.styleFrom(
+                            //               backgroundColor: const Color(0xffA0CFD0),
+                            //               minimumSize: const Size(120, 51),
+                            //               shape: RoundedRectangleBorder(
+                            //                 borderRadius: BorderRadius.circular(3),
+                            //               ),
+                            //             ),
+                            //             child: const Text(
+                            //               'Refresh',
+                            //               style: TextStyle(
+                            //                 fontSize: 18,
+                            //                 color: Colors.black,
+                            //               ),
+                            //             ),),
+                            //
+                            //         ],),
+                            //       const Padding(padding: EdgeInsets.symmetric(vertical: 20.0), child: Text("Your answer:")),
+                            //       const SizedBox( width: 281, height: 51,
+                            //         child: TextField(
+                            //           keyboardType: TextInputType.text,
+                            //           // controller: asciiController,
+                            //           decoration: InputDecoration(
+                            //             border: OutlineInputBorder(
+                            //                 borderRadius: BorderRadius.all(Radius.circular(5.0))
+                            //             ),
+                            //           ),
+                            //         ),
+                            //       ),
+                            //       Container(padding: const EdgeInsets.symmetric(vertical: 20.0), child:ElevatedButton(
+                            //         onPressed: _checkAnswer,
+                            //         style: ElevatedButton.styleFrom(
+                            //           backgroundColor: const Color(0xffA0CFD0),
+                            //           minimumSize: const Size(281, 51),
+                            //           shape: RoundedRectangleBorder(
+                            //             borderRadius: BorderRadius.circular(3),
+                            //           ),
+                            //         ),
+                            //         child: const Text(
+                            //           'Check answer',
+                            //           style: TextStyle(
+                            //             fontSize: 18,
+                            //             color: Colors.black,
+                            //           ),
+                            //         ),),)
+                            //     ]),
+                            // Column(mainAxisAlignment: MainAxisAlignment.start,crossAxisAlignment: CrossAxisAlignment.start,
+                            //     children: [
+                            //       const Padding(padding: EdgeInsets.symmetric(vertical: 20.0), child: Text("Guess the ASCII decimal number:")),
+                            //       Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            //         children: <Widget>
+                            //         [Container(width: 120, height: 51,
+                            //             decoration: const BoxDecoration(color: Color(0xffE7F3F3), borderRadius: BorderRadius.all(Radius.circular(3.0))),
+                            //             child: const Text("char",
+                            //               style: TextStyle(
+                            //                 fontSize: 18,
+                            //                 color: Colors.black,
+                            //
+                            //               ),),),
+                            //           ElevatedButton(
+                            //             onPressed: ()=>{},
+                            //             style: ElevatedButton.styleFrom(
+                            //               backgroundColor: const Color(0xffA0CFD0),
+                            //               minimumSize: const Size(120, 51),
+                            //               shape: RoundedRectangleBorder(
+                            //                 borderRadius: BorderRadius.circular(3),
+                            //               ),
+                            //             ),
+                            //             child: const Text(
+                            //               'Refresh',
+                            //               style: TextStyle(
+                            //                 fontSize: 18,
+                            //                 color: Colors.black,
+                            //               ),
+                            //             ),),
+                            //
+                            //         ],),
+                            //       const Padding(padding: EdgeInsets.symmetric(vertical: 20.0), child: Text("Your answer:")),
+                            //       const SizedBox( width: 281, height: 51,
+                            //         child: TextField(
+                            //           keyboardType: TextInputType.text,
+                            //           // controller: asciiController,
+                            //           decoration: InputDecoration(
+                            //             border: OutlineInputBorder(
+                            //                 borderRadius: BorderRadius.all(Radius.circular(5.0))
+                            //             ),
+                            //           ),
+                            //         ),
+                            //       ),
+                            //       Container(padding: const EdgeInsets.symmetric(vertical: 20.0), child:ElevatedButton(
+                            //         onPressed: _checkAnswer,
+                            //         style: ElevatedButton.styleFrom(
+                            //           backgroundColor: const Color(0xffA0CFD0),
+                            //           minimumSize: const Size(281, 51),
+                            //           shape: RoundedRectangleBorder(
+                            //             borderRadius: BorderRadius.circular(3),
+                            //           ),
+                            //         ),
+                            //         child: const Text(
+                            //           'Check answer',
+                            //           style: TextStyle(
+                            //             fontSize: 18,
+                            //             color: Colors.black,
+                            //           ),
+                            //         ),),)
+                            //     ]),
                           ],
                         )),)
                     ],),
@@ -386,4 +426,89 @@ class _MyMiniGameState extends State<MyMiniGame> {
 
 
       }
+  Widget _buildGuessWidget(String labelText, String textHint) {
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.start,
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Padding(
+          padding: const EdgeInsets.symmetric(vertical: 20.0),
+          child: Text(labelText),
+        ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: <Widget>[
+            Container(
+              width: 120,
+              height: 51,
+              decoration: const BoxDecoration(
+                color: Color(0xffE7F3F3),
+                borderRadius: BorderRadius.all(Radius.circular(3.0)),
+              ),
+              child: Text(
+                textHint,
+                style: const TextStyle(
+                  fontSize: 18,
+                  color: Colors.black,
+                ),
+              ),
+            ),
+            ElevatedButton(
+              onPressed: () {},
+              style: ElevatedButton.styleFrom(
+                backgroundColor: const Color(0xffA0CFD0),
+                minimumSize: const Size(120, 51),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(3),
+                ),
+              ),
+              child: const Text(
+                'Refresh',
+                style: TextStyle(
+                  fontSize: 18,
+                  color: Colors.black,
+                ),
+              ),
+            ),
+          ],
+        ),
+        const Padding(
+          padding: EdgeInsets.symmetric(vertical: 20.0),
+          child: Text("Your answer:"),
+        ),
+        const SizedBox(
+          width: 281,
+          height: 51,
+          child: TextField(
+            keyboardType: TextInputType.text,
+            decoration: InputDecoration(
+              border: OutlineInputBorder(
+                borderRadius: BorderRadius.all(Radius.circular(5.0)),
+              ),
+            ),
+          ),
+        ),
+        Container(
+          padding: const EdgeInsets.symmetric(vertical: 20.0),
+          child: ElevatedButton(
+            onPressed: _checkAnswer,
+            style: ElevatedButton.styleFrom(
+              backgroundColor: const Color(0xffA0CFD0),
+              minimumSize: const Size(281, 51),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(3),
+              ),
+            ),
+            child: const Text(
+              'Check answer',
+              style: TextStyle(
+                fontSize: 18,
+                color: Colors.black,
+              ),
+            ),
+          ),
+        ),
+      ],
+    );
+  }
       }
