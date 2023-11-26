@@ -28,7 +28,7 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   int _selectedIndex = 0;
-  final TextEditingController _asciiController = TextEditingController();
+  TextEditingController asciiController = TextEditingController();
   String _convertedCharacter = '';
 
   void _onItemTapped(int index) {
@@ -38,7 +38,7 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   void _convertAsciiToCharacter() {
-    int asciiCode = int.tryParse(_asciiController.text) ?? 0;
+    int asciiCode = int.tryParse(asciiController.text) ?? 0;
     setState(() {
       _convertedCharacter = String.fromCharCode(asciiCode);
     });
@@ -48,139 +48,118 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return DefaultTabController(
       length: 2,
-child: Scaffold(appBar: AppBar(
-  backgroundColor: const Color(0xFFF0F2E9),
+      child: Scaffold(appBar: AppBar(
+        backgroundColor: const Color(0xFFF0F2E9),
 
 ),
-    body: Padding(padding: const EdgeInsets.symmetric(horizontal: 45.0),
-      child:SingleChildScrollView(
-        child: Column(
+        body: Padding(padding: const EdgeInsets.symmetric(horizontal: 45.0),
+          child:SingleChildScrollView(
+            child: Column(
 
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.start,
 
-          children: <Widget>[
+              children: <Widget>[
 
-            const Text("ASCII converter",
-              style: TextStyle(
-                fontSize: 32,
+              const Text("ASCII converter",
+                style: TextStyle(
+                  fontSize: 32,
+                ),),
+              Container(
+                decoration: const BoxDecoration( color: Color(0xffffffff), borderRadius: BorderRadius.only(topLeft: Radius.circular(10.0), topRight: Radius.circular(10.0))),
+                child:const TabBar(
+                tabs:
+                [ Tab(text: "ASCII to text"),
+                  Tab(text: "Text to ACII")
+                ],
+                indicatorColor: Color(0xff19686A),
+                indicatorSize: TabBarIndicatorSize.tab,
+                labelColor: Color(0xff19686A),
               ),),
-            Container(
-              decoration: const BoxDecoration( color: Color(0xffffffff), borderRadius: BorderRadius.only(topLeft: Radius.circular(10.0), topRight: Radius.circular(10.0))),
-              child:const TabBar(
-              tabs:
-              [ Tab(text: "ASCII to text"),
-                Tab(text: "Text to ACII")
-              ],
-              indicatorColor: Color(0xff19686A),
-              indicatorSize: TabBarIndicatorSize.tab,
-              labelColor: Color(0xff19686A),
-            ),),
-            Container(padding: const EdgeInsets.symmetric(horizontal: 30.0),
-              decoration: const BoxDecoration(
-              borderRadius: BorderRadius.only(
-                bottomLeft: Radius.circular(10.0), bottomRight: Radius.circular(10.0))
-              , color: Color(0xffffffff),
-              ),child: const SizedBox(height: 300,
+              Container(padding: const EdgeInsets.symmetric(horizontal: 30.0),
+                decoration: const BoxDecoration(
+                borderRadius: BorderRadius.only(
+                  bottomLeft: Radius.circular(10.0), bottomRight: Radius.circular(10.0))
+                , color: Color(0xffffffff),
+              ),child:  SizedBox(height: 300,
                 child: TabBarView(
-                children: [
+                children: <Widget>[
                   Column(mainAxisAlignment: MainAxisAlignment.start,crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Padding(padding: EdgeInsets.symmetric(vertical: 20.0), child: Text("Enter ASCII decimal number:"),)
+                        const Padding(padding: EdgeInsets.symmetric(vertical: 20.0), child: Text("Enter ASCII decimal number:")),
+                        Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: <Widget>
+                          [SizedBox( width: 120, height: 51,
+                            child: TextField(
+                              keyboardType: TextInputType.number,
+                              controller: asciiController,
+                              decoration: const InputDecoration(
+                                border: OutlineInputBorder(
+                                 borderRadius: BorderRadius.all(Radius.circular(5.0))
+                                ),
+                              ),
+                            ),
+                          ),
+                          ElevatedButton(
+                            onPressed: _convertAsciiToCharacter,
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: const Color(0xffA0CFD0),
+                              minimumSize: const Size(120, 51),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(3),
+                              ),
+                            ),
+                            child: const Text(
+                              'Convert',
+                              style: TextStyle(
+                                fontSize: 18,
+                                color: Colors.black,
+                              ),
+                            ),),
 
+                        ],),
+                        const Padding(padding: EdgeInsets.symmetric(vertical: 20.0), child: Text("Output:")),
+                        Container(width: 281, height: 51,
+                        decoration: const BoxDecoration(color: Color(0xffE7F3F3), borderRadius: BorderRadius.all(Radius.circular(3.0))),
+                        child: Text(_convertedCharacter,
+                          style: const TextStyle(
+                            fontSize: 18,
+                            color: Colors.black,
+
+                          ),),)
                         
                       ]),
                   Center(child: Text("2nd card"))
                 ],
               )),),
 
-            Container(
-              width: 320,
-              height: 274,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(10),
-                color: Colors.white,
-              ),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  Row(
-                    children: [
-                      SizedBox(
-                          width: 134,
-                          height: 51,
-                          child: TextField(
-                            controller: _asciiController,
-                            keyboardType: TextInputType.number,
-                            decoration: InputDecoration(
-                              border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(5.0),
-                              ),
-                            ),
-                          )
-                      ),
 
-                      ElevatedButton(
-                        onPressed: _convertAsciiToCharacter,
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor: const Color(0xffA0CFD0),
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(3),
-                          ),
-                          minimumSize: const Size(134, 51),
-                        ),
-                        child: const Text(
-                          'Convert',
-                          style: TextStyle(
-                            fontSize: 18,
-                            color: Colors.black,
-
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-
-                  Container(
-                    width: 281,
-                    height: 51,
-                    color: const Color(0xffE7F3F3),
-                    child: Text(
-                      'Wynik: $_convertedCharacter',
-                      style: const TextStyle(
-                        fontSize: 18,
-                        color: Colors.black,
-
-                      ),
+              Center(
+                child: Container(padding: EdgeInsets.symmetric(vertical: 20.0),
+                    child: ElevatedButton(
+                  onPressed: () {
+                    // Działania po naciśnięciu przycisku
+                  },
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: const Color(0xff19686a),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10),
                     ),
-                  )
-                ],
-              ),
-            ),
-            Center(
-              child: ElevatedButton(
-                onPressed: () {
-                  // Działania po naciśnięciu przycisku
-                },
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: const Color(0xff19686a),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10),
+                    minimumSize: const Size(320, 51),
                   ),
-                  minimumSize: const Size(320, 51),
-                ),
-                child: const Text(
-                  'Mini game',
-                  style: TextStyle(
-                    fontSize: 18,
-                    color: Colors.white,
+                  child: const Text(
+                    'Mini game',
+                    style: TextStyle(
+                      fontSize: 18,
+                      color: Colors.white,
+                    ),
                   ),
-                ),
+                ),)
+
               ),
-            ),
-          ],
-        ),
-      ),))
+            ],
+          ),
+        ),))
 
     );
   }
