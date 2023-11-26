@@ -319,22 +319,19 @@ class _MyMiniGameState extends State<MyMiniGame> {
                                 ]),
                             Column(mainAxisAlignment: MainAxisAlignment.start,crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  const Padding(padding: EdgeInsets.symmetric(vertical: 20.0), child: Text("Enter text:")),
+                                  const Padding(padding: EdgeInsets.symmetric(vertical: 20.0), child: Text("Guess the ASCII decimal number:")),
                                   Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                     children: <Widget>
-                                    [const SizedBox( width: 120, height: 51,
-                                        child: TextField(
-                                          keyboardType: TextInputType.text,
-                                          // controller: asciiController,
-                                          decoration: InputDecoration(
-                                            border: OutlineInputBorder(
-                                                borderRadius: BorderRadius.all(Radius.circular(5.0))
-                                            ),
-                                          ),
-                                        ),
-                                      ),
+                                    [Container(width: 120, height: 51,
+                                        decoration: const BoxDecoration(color: Color(0xffE7F3F3), borderRadius: BorderRadius.all(Radius.circular(3.0))),
+                                        child: const Text("char",
+                                          style: TextStyle(
+                                            fontSize: 18,
+                                            color: Colors.black,
+
+                                          ),),),
                                       ElevatedButton(
-                                        onPressed: ()=> {},
+                                        onPressed: ()=>{},
                                         style: ElevatedButton.styleFrom(
                                           backgroundColor: const Color(0xffA0CFD0),
                                           minimumSize: const Size(120, 51),
@@ -343,7 +340,7 @@ class _MyMiniGameState extends State<MyMiniGame> {
                                           ),
                                         ),
                                         child: const Text(
-                                          'Convert',
+                                          'Refresh',
                                           style: TextStyle(
                                             fontSize: 18,
                                             color: Colors.black,
@@ -351,16 +348,34 @@ class _MyMiniGameState extends State<MyMiniGame> {
                                         ),),
 
                                     ],),
-                                  const Padding(padding: EdgeInsets.symmetric(vertical: 20.0), child: Text("Output:")),
-                                  Container(width: 281, height: 51,
-                                    decoration: const BoxDecoration(color: Color(0xffE7F3F3), borderRadius: BorderRadius.all(Radius.circular(3.0))),
-                                    child: const Text("_convertedCharacter",
+                                  const Padding(padding: EdgeInsets.symmetric(vertical: 20.0), child: Text("Your answer:")),
+                                  const SizedBox( width: 281, height: 51,
+                                    child: TextField(
+                                      keyboardType: TextInputType.text,
+                                      // controller: asciiController,
+                                      decoration: InputDecoration(
+                                        border: OutlineInputBorder(
+                                            borderRadius: BorderRadius.all(Radius.circular(5.0))
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                  Container(padding: const EdgeInsets.symmetric(vertical: 20.0), child:ElevatedButton(
+                                    onPressed: ()=>{},
+                                    style: ElevatedButton.styleFrom(
+                                      backgroundColor: const Color(0xffA0CFD0),
+                                      minimumSize: const Size(281, 51),
+                                      shape: RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.circular(3),
+                                      ),
+                                    ),
+                                    child: const Text(
+                                      'Check answer',
                                       style: TextStyle(
                                         fontSize: 18,
                                         color: Colors.black,
-
-                                      ),),)
-
+                                      ),
+                                    ),),)
                                 ]),
                           ],
                         )),)
