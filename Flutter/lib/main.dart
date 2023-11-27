@@ -343,6 +343,7 @@ class MyMiniGame extends StatefulWidget {
 class _MyMiniGameState extends State<MyMiniGame> {
   TextEditingController answerController = TextEditingController();
   String _convertedCharacter = '';
+  bool _isAsciiToTxt = true;
 
   void onRefresh(int tabIndex) {
     Random random = Random();
@@ -352,21 +353,44 @@ class _MyMiniGameState extends State<MyMiniGame> {
       setState(() {
         _convertedCharacter = randomInt.toString();
       });
+      _isAsciiToTxt = true;
     }else{
       setState(() {
         _convertedCharacter = String.fromCharCode(randomInt);
       });
+      _isAsciiToTxt = false;
+      }
+    }
+
+  void _checkAnswer() {
+    String answer = answerController.text;
+
+    if(_isAsciiToTxt){
+      String convertedQuestion = String.fromCharCode(int.parse(_convertedCharacter));
+      if(answer==convertedQuestion){
+        _showAnswerModal("Good answer!");
+      }
+      else{
+        _showAnswerModal("Wrong answer!");
+      }
+    }else{
+      try{
+        String convertedAnswer = String.fromCharCode(int.parse(answer));
+        if(convertedAnswer==_convertedCharacter){
+          _showAnswerModal("Good answer!");
+        }
+        else{
+          _showAnswerModal("Wrong answer!");
+        }
+      }catch(e){
+        _showAnswerModal("Wrong answer!");
+      }
+
     }
 
   }
 
-  void _checkAnswer() {
-    String answer = answerController.text.toLowerCase();
-
-    _showAnswerModal();
-  }
-
-  void _showAnswerModal() {
+  void _showAnswerModal(message) {
     showDialog(
       context: context,
       builder: (BuildContext context) {
@@ -379,7 +403,7 @@ class _MyMiniGameState extends State<MyMiniGame> {
             child:
                 Center(child: Container(
 
-                  child: const Text("Good answer!", style: TextStyle(fontSize: 20,
+                  child: Text(message, style: TextStyle(fontSize: 20,
 
                       fontFamily: 'Poppins',
                       fontWeight: FontWeight.w400),),
