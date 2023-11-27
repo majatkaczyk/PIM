@@ -9,7 +9,6 @@ import {
 import React, { useState, useEffect } from "react";
 import miniGameStyle from "./miniGameStyle";
 import globalContentStyle from "../../globalStyles/globalContentStyle";
-import { TouchableOpacity } from "react-native-gesture-handler";
 const AsciiToTextGame = () => {
   const [randomAscii, setRandomAscii] = useState(null);
   const [userAnswer, setUserAnswer] = useState("");
@@ -69,9 +68,9 @@ const AsciiToTextGame = () => {
           maxLength={3}
         />
       </SafeAreaView>
-      <TouchableOpacity style={miniGameStyle.bigButton} onPress={checkAnswer}>
+      <Pressable style={miniGameStyle.bigButton} onPress={() => checkAnswer()}>
         <Text style={miniGameStyle.gameText}>Check answer</Text>
-      </TouchableOpacity>
+      </Pressable>
 
       <Modal
         animationType="slide"
@@ -82,17 +81,17 @@ const AsciiToTextGame = () => {
         }}
       >
         <View style={globalContentStyle.modalContainer}>
-          <View style={globalContentStyle.modalBox}>
+          <View style={globalContentStyle.modalBackground}>
             <View style={globalContentStyle.modalWhiteBox}>
               <Text style={globalContentStyle.modalAnswer}>{result}</Text>
-              <TouchableOpacity
+              <Pressable
                 style={globalContentStyle.modalButton}
                 onPress={closeModal}
               >
                 <Text style={globalContentStyle.modalTextButton}>
                   Start again
                 </Text>
-              </TouchableOpacity>
+              </Pressable>
             </View>
           </View>
         </View>

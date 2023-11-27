@@ -1,4 +1,4 @@
-import { Text, TouchableOpacity, View } from "react-native";
+import { Text, View } from "react-native";
 import React from "react";
 import converterStyle from "./converterStyle";
 import TabNavigator from "../../navigators/tabNavigator";
@@ -13,7 +13,7 @@ import {
   Poppins_500Medium,
 } from "@expo-google-fonts/poppins";
 import globalContentStyle from "../../globalStyles/globalContentStyle";
-
+import { Pressable } from "react-native";
 const ConverterScreen = ({ navigation }) => {
   const [fontsLoaded] = useFonts({
     Nunito_400Regular,
@@ -32,12 +32,12 @@ const ConverterScreen = ({ navigation }) => {
         <View style={globalContentStyle.tabContainer}>
           <TabNavigator isGame={false} />
         </View>
-        <TouchableOpacity
+        <Pressable
           style={converterStyle.bigButton}
           onPress={() => navigation.push("MiniGame")}
         >
           <Text style={converterStyle.gameText}>Mini game</Text>
-        </TouchableOpacity>
+        </Pressable>
       </View>
     </View>
   );

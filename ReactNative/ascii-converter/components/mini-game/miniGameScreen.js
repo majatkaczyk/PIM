@@ -14,9 +14,8 @@ import miniGameStyle from "./miniGameStyle";
 import MaterialIcons from "react-native-vector-icons/MaterialIcons";
 import { colors } from "../../globalStyles/colors";
 import TabNavigator from "../../navigators/tabNavigator";
-import { TouchableOpacity } from "react-native-gesture-handler";
 import globalContentStyle from "../../globalStyles/globalContentStyle";
-
+import { Pressable } from "react-native";
 const MiniGameScreen = ({ navigation }) => {
   const [randomAscii, setRandomAscii] = useState(null);
   const [userAnswer, setUserAnswer] = useState("");
@@ -53,7 +52,7 @@ const MiniGameScreen = ({ navigation }) => {
   return (
     <View style={miniGameStyle.mainContainer}>
       <View style={globalContentStyle.contentContainer}>
-        <TouchableOpacity
+        <Pressable
           style={miniGameStyle.rowNavigationContainer}
           onPress={() => navigation.pop()}
         >
@@ -63,7 +62,7 @@ const MiniGameScreen = ({ navigation }) => {
             color={colors.fontColor}
           />
           <Text style={miniGameStyle.navigationText}>Back to converter</Text>
-        </TouchableOpacity>
+        </Pressable>
         <Text style={miniGameStyle.header}>Mini game</Text>
         <View style={miniGameStyle.tabContainer}>
           <TabNavigator isGame={true} />

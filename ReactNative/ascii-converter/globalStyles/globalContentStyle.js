@@ -37,7 +37,7 @@ const globalContentStyle = StyleSheet.create({
   modalContainer: {
     backgroundColor: "#C3C2C2",
     flex: 1,
-    opacity: 0.7,
+    opacity: 0.92,
     justifyContent: "center",
     alignItems: "center",
   },
