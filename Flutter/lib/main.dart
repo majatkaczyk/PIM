@@ -92,6 +92,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   "ASCII converter",
                   style: TextStyle(
                     fontSize: 32,
+                    fontFamily: 'Nunito'
                   ),
                 ),
                 Container(
