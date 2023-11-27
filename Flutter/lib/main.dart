@@ -1,4 +1,3 @@
-import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'dart:math';
@@ -134,7 +133,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                 ),
                 Container(
-                  padding: const EdgeInsets.symmetric(horizontal: 30.0),
+                  padding: const EdgeInsets.symmetric(horizontal: 25.0),
                   decoration: const BoxDecoration(
                     borderRadius: BorderRadius.only(
                         bottomLeft: Radius.circular(10.0),
@@ -142,7 +141,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     color: Color(0xffffffff),
                   ),
                   child: SizedBox(
-                    height: 300,
+                    height: 250,
                     child: TabBarView(
                       children: <Widget>[
                         Column(
@@ -150,23 +149,33 @@ class _MyHomePageState extends State<MyHomePage> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               const Padding(
-                                  padding: EdgeInsets.symmetric(
-                                      vertical: 20.0),
-                                  child: Text("Enter ASCII decimal number:")),
+                                  padding: EdgeInsets.only(top: 25, bottom: 10),
+                                  child: Text(
+                                    "Enter ASCII decimal number:",
+                                    style: TextStyle(
+                                        fontSize: 16,
+                                        fontFamily: 'Poppins',
+                                        fontWeight: FontWeight.w300
+                                    ),
+                                  ),
+                                  ),
                               Row(
                                 mainAxisAlignment:
                                 MainAxisAlignment.spaceBetween,
                                 children: <Widget>[
                                   SizedBox(
-                                    width: 120,
-                                    height: 51,
+                                    width: 134,
+                                    height: 55,
                                     child: TextField(
                                       keyboardType: TextInputType.number,
                                       controller: asciiController,
                                       decoration: const InputDecoration(
                                         border: OutlineInputBorder(
                                             borderRadius: BorderRadius.all(
-                                                Radius.circular(5.0))),
+                                                Radius.circular(5.0)),
+                                          borderSide: BorderSide(color: Color(0xff19686A), width: 1.0, style: BorderStyle.solid)
+                                        ),
+                                        
                                       ),
                                     ),
                                   ),
@@ -175,7 +184,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                     style: ElevatedButton.styleFrom(
                                       backgroundColor:
                                       const Color(0xffA0CFD0),
-                                      minimumSize: const Size(120, 51),
+                                      minimumSize: const Size(134, 55),
                                       shape: RoundedRectangleBorder(
                                         borderRadius: BorderRadius.circular(3),
                                       ),
@@ -185,18 +194,21 @@ class _MyHomePageState extends State<MyHomePage> {
                                       style: TextStyle(
                                         fontSize: 18,
                                         color: Colors.black,
+                                          fontFamily: 'Poppins',
+                                          fontWeight: FontWeight.w500
                                       ),
                                     ),
                                   ),
                                 ],
                               ),
                               const Padding(
-                                  padding: EdgeInsets.symmetric(
-                                      vertical: 20.0),
-                                  child: Text("Output:")),
+                                  padding: EdgeInsets.only(top: 15, bottom: 10),
+                                  child: Text("Output:", style: TextStyle(fontSize: 16,
+                                      fontFamily: 'Poppins',
+                                      fontWeight: FontWeight.w300),)),
                               Container(
-                                width: 281,
-                                height: 51,
+                                width: 300,
+                                height: 55,
                                 decoration: const BoxDecoration(
                                     color: Color(0xffE7F3F3),
                                     borderRadius: BorderRadius.all(
@@ -215,23 +227,30 @@ class _MyHomePageState extends State<MyHomePage> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               const Padding(
-                                  padding: EdgeInsets.symmetric(
-                                      vertical: 20.0),
-                                  child: Text("Enter text:")),
+                                  padding: EdgeInsets.only(top: 25, bottom: 10),
+                                  child: Text(
+                                      "Enter text:",
+                                      style: TextStyle(
+                                          fontSize: 16,
+                                          fontFamily: 'Poppins',
+                                          fontWeight: FontWeight.w300
+                                      ),
+                                    )),
                               Row(
                                 mainAxisAlignment:
                                 MainAxisAlignment.spaceBetween,
                                 children: <Widget>[
                                   SizedBox(
-                                    width: 120,
-                                    height: 51,
+                                    width: 134,
+                                    height: 55,
                                     child: TextField(
                                       keyboardType: TextInputType.text,
                                       controller: asciiController,
                                       decoration: const InputDecoration(
                                         border: OutlineInputBorder(
                                             borderRadius: BorderRadius.all(
-                                                Radius.circular(5.0))),
+                                                Radius.circular(5.0)),
+                                            borderSide: BorderSide(color: Color(0xff19686A), width: 1.0, style: BorderStyle.solid)),
                                       ),
                                     ),
                                   ),
@@ -240,7 +259,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                     style: ElevatedButton.styleFrom(
                                       backgroundColor:
                                       const Color(0xffA0CFD0),
-                                      minimumSize: const Size(120, 51),
+                                      minimumSize: const Size(134, 55),
                                       shape: RoundedRectangleBorder(
                                         borderRadius: BorderRadius.circular(3),
                                       ),
@@ -250,6 +269,8 @@ class _MyHomePageState extends State<MyHomePage> {
                                       style: TextStyle(
                                         fontSize: 18,
                                         color: Colors.black,
+                                          fontFamily: 'Poppins',
+                                          fontWeight: FontWeight.w500
                                       ),
                                     ),
                                   )
@@ -260,8 +281,8 @@ class _MyHomePageState extends State<MyHomePage> {
                                       vertical: 20.0),
                                   child: Text("Output:")),
                               Container(
-                                width: 281,
-                                height: 51,
+                                width: 300,
+                                height: 55,
                                 decoration: const BoxDecoration(
                                     color: Color(0xffE7F3F3),
                                     borderRadius: BorderRadius.all(
@@ -289,13 +310,16 @@ class _MyHomePageState extends State<MyHomePage> {
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(10),
                           ),
-                          minimumSize: const Size(320, 51),
+                          minimumSize: const Size(340, 55),
                         ),
                         child: const Text(
                           'Mini game',
                           style: TextStyle(
                             fontSize: 18,
                             color: Colors.white,
+                              fontFamily: 'Poppins',
+                              fontWeight: FontWeight.w500
+
                           ),
                         ),
                       )),
@@ -431,7 +455,7 @@ class _MyMiniGameState extends State<MyMiniGame> {
                   ),
                 ),
                 Container(
-                  padding: const EdgeInsets.symmetric(horizontal: 30.0),
+                  padding: const EdgeInsets.symmetric(horizontal: 25.0),
                   decoration: const BoxDecoration(
                     borderRadius: BorderRadius.only(
                         bottomLeft: Radius.circular(10.0),
