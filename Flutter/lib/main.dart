@@ -362,7 +362,6 @@ class _MyMiniGameState extends State<MyMiniGame> {
 
   void _checkAnswer() {
     String answer = answerController.text.toLowerCase();
-    print("Answer: $answer");
 
     _showAnswerModal();
   }
@@ -372,25 +371,36 @@ class _MyMiniGameState extends State<MyMiniGame> {
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
+          backgroundColor: Colors.white,
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(3.0)),
           content: SizedBox(
-            width: 281,
-            height: 51,
-            child: Container(
-              decoration: const BoxDecoration(
-                borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(10.0),
-                  topRight: Radius.circular(10.0),
-                ),
-              ),
-              child: const Text("That's the correct answer!"),
-            ),
+            width: 301,
+            height: 151,
+            child:
+                Center(child: Container(
+
+                  child: const Text("Good answer!", style: TextStyle(fontSize: 20,
+
+                      fontFamily: 'Poppins',
+                      fontWeight: FontWeight.w400),),
+                ),)
+
           ),
           actions: [
             ElevatedButton(
               onPressed: () {
                 Navigator.of(context).pop();
-              },
-              child: const Text("OK"),
+              },style: ElevatedButton.styleFrom(
+              backgroundColor: const Color(0xff19686A),
+              minimumSize: const Size(300, 55),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(3),
+              ),
+            ),
+              child: const Text("Start again", style: TextStyle(fontSize: 18,
+color: Colors.white,
+                  fontFamily: 'Poppins',
+                  fontWeight: FontWeight.w400),),
             ),
           ],
         );
@@ -488,7 +498,7 @@ class _MyMiniGameState extends State<MyMiniGame> {
       children: [
         Padding(
           padding: const EdgeInsets.only(top: 25, bottom: 10),
-          child: Text(labelText, style: TextStyle(fontSize: 16,
+          child: Text(labelText, style: const TextStyle(fontSize: 16,
               fontFamily: 'Poppins',
               fontWeight: FontWeight.w300),),
         ),
