@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'dart:math';
 
@@ -82,19 +84,22 @@ class _MyHomePageState extends State<MyHomePage> {
           backgroundColor: const Color(0xFFF0F2E9),
         ),
         body: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 45.0),
+          padding: const EdgeInsets.symmetric(horizontal: 35.0),
           child: SingleChildScrollView(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
-                const Text(
+                Container(padding: const EdgeInsets.only(bottom: 10.0),child: const Text(
                   "ASCII converter",
                   style: TextStyle(
-                    fontSize: 32,
-                    fontFamily: 'Nunito'
+                      fontSize: 32,
+                      fontFamily: 'Nunito',
+                      color: Color(0xff082929)
+
                   ),
-                ),
+                ),),
+
                 Container(
                   decoration: const BoxDecoration(
                     color: Color(0xffffffff),
@@ -104,8 +109,24 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                   child: const TabBar(
                     tabs: [
-                      Tab(text: "ASCII to text"),
-                      Tab(text: "Text to ASCII")
+                      Tab(child: Text(
+                        "ASCII to text",
+                        style: TextStyle(
+                            fontSize: 16,
+                            fontFamily: 'Poppins',
+                            color: Color(0xff19686A),
+                          fontWeight: FontWeight.w400
+                        ),
+                      ),),
+                      Tab(child: Text(
+                        "Text to ASCII",
+                        style: TextStyle(
+                            fontSize: 16,
+                            fontFamily: 'Poppins',
+                            color: Color(0xff19686A),
+                            fontWeight: FontWeight.w400
+                        ),
+                      ),)
                     ],
                     indicatorColor: Color(0xff19686A),
                     indicatorSize: TabBarIndicatorSize.tab,
@@ -224,9 +245,9 @@ class _MyHomePageState extends State<MyHomePage> {
                                         borderRadius: BorderRadius.circular(3),
                                       ),
                                     ),
-                                    child: Text(
+                                    child: const Text(
                                       "Convert",
-                                      style: const TextStyle(
+                                      style: TextStyle(
                                         fontSize: 18,
                                         color: Colors.black,
                                       ),
@@ -362,18 +383,20 @@ class _MyMiniGameState extends State<MyMiniGame> {
           backgroundColor: const Color(0xFFF0F2E9),
         ),
         body: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 45.0),
+          padding: const EdgeInsets.symmetric(horizontal: 35.0),
           child: SingleChildScrollView(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
-                const Text(
+                Container(padding: const EdgeInsets.only(bottom: 10.0),child: const Text(
                   "Mini game",
                   style: TextStyle(
-                    fontSize: 32,
+                      fontSize: 32,
+                      fontFamily: 'Nunito',
+                      color: Color(0xff082929)
                   ),
-                ),
+                ),),
                 Container(
                   decoration: const BoxDecoration(
                     color: Color(0xffffffff),
@@ -383,8 +406,24 @@ class _MyMiniGameState extends State<MyMiniGame> {
                   ),
                   child: const TabBar(
                     tabs: [
-                      Tab(text: "ASCII to text"),
-                      Tab(text: "Text to ASCII")
+                      Tab(child: Text(
+                        "ASCII to text",
+                        style: TextStyle(
+                            fontSize: 16,
+                            fontFamily: 'Poppins',
+                            color: Color(0xff19686A),
+                            fontWeight: FontWeight.w400
+                        ),
+                      ),),
+                      Tab(child: Text(
+                        "Text to ASCII",
+                        style: TextStyle(
+                            fontSize: 16,
+                            fontFamily: 'Poppins',
+                            color: Color(0xff19686A),
+                            fontWeight: FontWeight.w400
+                        ),
+                      ),)
                     ],
                     indicatorColor: Color(0xff19686A),
                     indicatorSize: TabBarIndicatorSize.tab,
@@ -482,7 +521,7 @@ class _MyMiniGameState extends State<MyMiniGame> {
           child: TextField(
             controller: answerController,
             keyboardType: TextInputType.text,
-            decoration: InputDecoration(
+            decoration: const InputDecoration(
               border: OutlineInputBorder(
                 borderRadius: BorderRadius.all(Radius.circular(5.0)),
               ),

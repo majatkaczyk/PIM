@@ -80,7 +80,10 @@ flutter:
      - family: Nunito
        fonts:
          - asset: assets/fonts/Nunito/Nunito-Medium.ttf
-
+     - family: Poppins
+       fonts:
+         - asset: assets/fonts/Poppins/Poppins-Regular.ttf
+         - asset: assets/fonts/Poppins/Poppins-Light.ttf
 
   #   - family: Trajan Pro
   #     fonts:
