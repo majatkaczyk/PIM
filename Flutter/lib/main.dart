@@ -463,7 +463,7 @@ class _MyMiniGameState extends State<MyMiniGame> {
                     color: Color(0xffffffff),
                   ),
                   child: SizedBox(
-                    height: 350,
+                    height: 320,
                     child: TabBarView(
                       children: <Widget>[
                         _buildGuessWidget("Guess the text:", "char", 0),
@@ -487,15 +487,17 @@ class _MyMiniGameState extends State<MyMiniGame> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Padding(
-          padding: const EdgeInsets.symmetric(vertical: 20.0),
-          child: Text(labelText),
+          padding: const EdgeInsets.only(top: 25, bottom: 10),
+          child: Text(labelText, style: TextStyle(fontSize: 16,
+              fontFamily: 'Poppins',
+              fontWeight: FontWeight.w300),),
         ),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: <Widget>[
             Container(
-              width: 120,
-              height: 51,
+              width: 134,
+              height: 55,
               decoration: const BoxDecoration(
                 color: Color(0xffE7F3F3),
                 borderRadius: BorderRadius.all(Radius.circular(3.0)),
@@ -503,8 +505,9 @@ class _MyMiniGameState extends State<MyMiniGame> {
               child: Text(
                 _convertedCharacter,
                 style: const TextStyle(
-                  fontSize: 18,
-                  color: Colors.black,
+                    fontSize: 16,
+                    fontFamily: 'Poppins',
+                    fontWeight: FontWeight.w300
                 ),
               ),
             ),
@@ -520,7 +523,7 @@ class _MyMiniGameState extends State<MyMiniGame> {
               },
               style: ElevatedButton.styleFrom(
                 backgroundColor: const Color(0xffA0CFD0),
-                minimumSize: const Size(120, 51),
+                minimumSize: const Size(134, 55),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(3),
                 ),
@@ -530,18 +533,22 @@ class _MyMiniGameState extends State<MyMiniGame> {
                 style: TextStyle(
                   fontSize: 18,
                   color: Colors.black,
+                    fontFamily: 'Poppins',
+                    fontWeight: FontWeight.w500
                 ),
               ),
             ),
           ],
         ),
         const Padding(
-          padding: EdgeInsets.symmetric(vertical: 20.0),
-          child: Text("Your answer:"),
+          padding: EdgeInsets.only(top: 15, bottom: 10),
+          child: Text("Your answer:", style: TextStyle(fontSize: 16,
+              fontFamily: 'Poppins',
+              fontWeight: FontWeight.w300),),
         ),
         SizedBox(
-          width: 281,
-          height: 51,
+          width: 300,
+          height: 55,
           child: TextField(
             controller: answerController,
             keyboardType: TextInputType.text,
@@ -558,7 +565,7 @@ class _MyMiniGameState extends State<MyMiniGame> {
             onPressed: _checkAnswer,
             style: ElevatedButton.styleFrom(
               backgroundColor: const Color(0xffA0CFD0),
-              minimumSize: const Size(281, 51),
+              minimumSize: const Size(300, 55),
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(3),
               ),
@@ -568,6 +575,8 @@ class _MyMiniGameState extends State<MyMiniGame> {
               style: TextStyle(
                 fontSize: 18,
                 color: Colors.black,
+                  fontFamily: 'Poppins',
+                  fontWeight: FontWeight.w500
               ),
             ),
           ),
